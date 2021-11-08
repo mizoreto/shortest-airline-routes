@@ -12,4 +12,5 @@ However if a team member is habitually not completing their tasks, they may be a
 If this was an MD file, each of us would sign our names here at the bottom with an electronic signature and a separate github commit over the same document. 
 
 Signature
-Boyang Yu
+
+I, Boyang Yu (boyangy4) agree to the terms of this contract.
