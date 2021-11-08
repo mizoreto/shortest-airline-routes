@@ -14,4 +14,5 @@ If this was an MD file, each of us would sign our names here at the bottom with 
 Signature
 
 I, Boyang Yu (boyangy4) agree to the terms of this contract.
+
 I, Ziyi Wang (ziyiw8) agree wot the terms of thsi contract.
