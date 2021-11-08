@@ -16,3 +16,5 @@ Signature
 I, Boyang Yu (boyangy4) agree to the terms of this contract.
 
 I, Ziyi Wang (ziyiw8) agree wot the terms of thsi contract.
+
+I, Yuhua Weng (yuhua2) agree to the terms of this contract.
