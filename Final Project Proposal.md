@@ -1,6 +1,8 @@
 # Final Project Proposal
-## 1. Leading Question - What is the shortest, or most preferred route between two airports?
-## 2. Dataset Acquisition - We are planning to use the data provided by openflights.org for this project. We will be focusing on the airport portion of the dataset as our leading question is to find the optimal route between two airports. This portion of the dataset contains airport ID, name, city, latitude, longitude, and altitude. Which will be helpful for us to draw a conclusion. We will store the data in .csv format. We will delete or ignore data error, outlier, unwanted data, or missing data before applying the algorithms.
+## 1. Leading Question - 
+What is the shortest, or most preferred route between two airports?
+## 2. Dataset Acquisition - 
+We are planning to use the data provided by openflights.org for this project. We will be focusing on the airport portion of the dataset as our leading question is to find the optimal route between two airports. This portion of the dataset contains airport ID, name, city, latitude, longitude, and altitude. Which will be helpful for us to draw a conclusion. We will store the data in .csv format. We will delete or ignore data error, outlier, unwanted data, or missing data before applying the algorithms.
 https://openflights.org/data.html
 ## 3. Graph Algorithms -
 We will be using Breadth First Traversal (BFS) for this project to traverse through the graph that we have created using the data set. 
