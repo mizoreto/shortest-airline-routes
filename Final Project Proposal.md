@@ -6,14 +6,16 @@ https://openflights.org/data.html
 We will be using Breadth First Traversal (BFS) for this project to traverse through the graph that we have created using the data set. 
 We will be using Dijkstra’s Algorithm. Which has a worst case runtime of Ө(|E| + |V| log|V|), where E is the number of edges, and V is the number of vertices. The Dijkstra’s Algorithm will take two inputs: the graph instance created by the graph constructor and the ID of the airport that we choose to be our starting point of our search. The function will return two vector containers: one of them will store the calculated distance from the starting airport the the other nodes; the other will store the pointers of the node that the traversal has visited on the same path.
 The last algorithm that we will be using is A* search algorithm, this algorithm is extended based on Dijkstra’s Algorithm.
-## 4. Timeline - 
-	Nov 7 start and finish the Team Contract, get started on Proposal
-	Nov 8 finish the project proposal, and submit it.
-	Nov 9-14  finish constructing the overall structure of the program
-  Nov 15-18 finish the readFromFile function
-  Nov 18-21 finish writing the file and comment.
-  Nov 22-25 finish the graph class
-  Nov 25-28 Implement the algorithm to find the optimal distance
-  Nov 29 mid project checkin
-  Nov 30 - Dec 5 finish writing the test cases for the program and debug
-  Dec 6-13 Summing conclusions and preparing for the video description of the project.
+## 4. Timeline
+```
+Nov 7 start and finish the Team Contract, get started on Proposal
+Nov 8 finish the project proposal, and submit it.
+Nov 9-14  finish constructing the overall structure of the program
+Nov 15-18 finish the readFromFile function
+Nov 18-21 finish writing the file and comment.
+Nov 22-25 finish the graph class
+Nov 25-28 Implement the algorithm to find the optimal distance
+Nov 29 mid project checkin
+Nov 30 - Dec 5 finish writing the test cases for the program and debug
+Dec 6-13 Summing conclusions and preparing for the video description of the project.
+```
