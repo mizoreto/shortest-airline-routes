@@ -1,15 +1,15 @@
 # Final Project Proposal
-## 1. Leading Question - 
+## I. Leading Question - 
 What is the shortest, or most preferred route between two airports?
-## 2. Dataset Acquisition - 
+## II. Dataset Acquisition - 
 We are planning to use the data provided by openflights.org for this project. We will be focusing on the airport portion of the dataset as our leading question is to find the optimal route between two airports. This portion of the dataset contains airport ID, name, city, latitude, longitude, and altitude. Which will be helpful for us to draw a conclusion. We will store the data in .csv format. We will delete or ignore data error, outlier, unwanted data, or missing data before applying the algorithms.
 https://openflights.org/data.html
-## 3. Graph Algorithms -
-  a. We will be using Breadth First Traversal (BFS) for this project to traverse through the graph that we have created using the data set. 
-  b. We will be using Dijkstra’s Algorithm. Which has a worst case runtime of Ө(|E| + |V| log|V|), where E is the number of edges, and V is the number of vertices. The Dijkstra’s Algorithm will take two inputs: the graph instance created by the graph constructor and the ID of the airport that we choose to be our starting point of our search. The function will return two vector containers: one of them will store the calculated distance from the starting airport the the other nodes; the other will store the pointers of the node that the traversal has visited on the same path.
-  c. The last algorithm that we will be using is the Degree Centrality algorithm. This algorithm counts the number of incoming and outgoing relationships at a node, and it can be used to find the most popular/ busiest airports in the world. The runtime for Degree Centrality to be performed on all nodes in a graph is Ө(V^2), where V is the number of vertices.
+## III. Graph Algorithms -
+  1. We will be using Breadth First Traversal (BFS) for this project to traverse through the graph that we have created using the data set. 
+  2. We will be using Dijkstra’s Algorithm. Which has a worst case runtime of Ө(|E| + |V| log|V|), where E is the number of edges, and V is the number of vertices. The Dijkstra’s Algorithm will take two inputs: the graph instance created by the graph constructor and the ID of the airport that we choose to be our starting point of our search. The function will return two vector containers: one of them will store the calculated distance from the starting airport the the other nodes; the other will store the pointers of the node that the traversal has visited on the same path.
+  3. The last algorithm that we will be using is the Degree Centrality algorithm. This algorithm counts the number of incoming and outgoing relationships at a node, and it can be used to find the most popular/ busiest airports in the world. The runtime for Degree Centrality to be performed on all nodes in a graph is Ө(V^2), where V is the number of vertices.
 
-## 4. Timeline
+## IV. Timeline
 
   * Nov 7 start and finish the Team Contract, get started on Proposal
   * Nov 8 finish the project proposal, and submit it.
