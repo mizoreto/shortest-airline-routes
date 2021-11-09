@@ -11,14 +11,14 @@ c. The last algorithm that we will be using is the Degree Centrality algorithm. 
 
 ## 4. Timeline
 
-..* Nov 7 start and finish the Team Contract, get started on Proposal
-..* Nov 8 finish the project proposal, and submit it.
-..* Nov 9-14  finish constructing the overall structure of the program
-..* Nov 15-18 finish the readFromFile function
-..* Nov 18-21 finish writing the file and comment.
-..* Nov 22-25 finish the graph class
-..* Nov 25-28 Implement the algorithm to find the optimal distance
-..* Nov 29 mid project checkin
-..* Nov 30 - Dec 5 finish writing the test cases for the program and debug
-..* Dec 6-13 Summing conclusions and preparing for the video description of the project.
+  * Nov 7 start and finish the Team Contract, get started on Proposal
+  * Nov 8 finish the project proposal, and submit it.
+  * Nov 9-14  finish constructing the overall structure of the program
+  * Nov 15-18 finish the readFromFile function
+  * Nov 18-21 finish writing the file and comment.
+  * Nov 22-25 finish the graph class
+  * Nov 25-28 Implement the algorithm to find the optimal distance
+  * Nov 29 mid project checkin
+  * Nov 30 - Dec 5 finish writing the test cases for the program and debug
+  * Dec 6-13 Summing conclusions and preparing for the video description of the project.
 
