@@ -2,47 +2,59 @@
 
 #include <iostream>
 #include <fstream>
+#include <utility> 
 #include <stdlib.h>
 
-map<string, airport> readRawData() {
-    map<string, airport> airports;
+map<string, Airports::airport*> Airports::readRawData() {
+    // map<string, airport> airports;
     ifstream file("airports.dat");
     string lineText;
     int count = 0;
+    cout << "line 13" << endl;
     while (getline(file, lineText)) {
-        if (count == 22) {
-            cout << lineText << endl;
-            string parts[14];
-            string text = lineText;
-            for (int i = 0; i < 14; i++) {
-                size_t commaIndex = text.find(',');
-                parts[i] = text.substr(0, commaIndex);
-                text.erase(0, commaIndex + 1);
-            }
-            cout << "Airport name: "<< parts[1] << endl;
-            cout << "Airport ID: "<< parts[4] << endl;
-
-            airport newAirport;
-            if (parts[4] != "\\N") newAirport.ID = parts[4];
-            else newAirport.ID = parts[5];
-            cout << "newAirport ID: "<< newAirport.ID << endl;
-            newAirport.lat = strtod(parts[6].c_str() , NULL);
-            cout << "Airport lati: "<< parts[6] << endl;
-            cout << "Airport lati: "<< newAirport.lat << endl;
-
+        // cout << lineText << endl;
+        string parts[14];
+        string text = lineText;
+        for (int i = 0; i < 14; i++) {
+            size_t commaIndex = text.find(',');
+            parts[i] = text.substr(0, commaIndex);
+            text.erase(0, commaIndex + 1);
         }
+        cout << "line 22" << endl;
+        // cout << "Airport name: "<< parts[1] << endl;
+        // cout << "Airport ID: "<< parts[4] << endl;
+        
+        airport newAirport;
+        cout << "line 28" << endl;
+        if (parts[4] != "\\N") newAirport.ID = parts[4];
+        else newAirport.ID = parts[5];
+        cout << "line 31" << endl;
+        //cout << "newAirport ID: "<< newAirport.ID << endl;
+        newAirport.lat = strtod(parts[6].c_str() , NULL);
+        newAirport.lon = strtod(parts[7].c_str() , NULL);
+        // cout << "Airport lati: "<< newAirport.lat << endl;
+        // cout << "Airport long: "<< newAirport.lon << endl;
+        cout << "line 37" << endl;
+        airports.insert(pair<string, airport*> (newAirport.ID, &newAirport));
+        cout << "line 39" << endl;
+        
         count++;
     }
-
+    cout << "line 43" << endl;
+    map<string, Airports::airport*>::iterator it = airports.begin();
+    advance(it, 305);
+    cout << "This airport is " << it->second->ID << endl;
+    cout << "airports has size " << airports.size() << endl;
+    cout << "This airport is " << airports["GPI"]->ID << endl;
     return airports;
 }
 
-void writeCleanData(map<string, airport> airports) {
+void Airports::writeCleanData(map<string, Airports::airport*> airports) {
     
 }
 
-map<string, airport> readCleanData() {
-    map<string, airport> airports;
+map<string, Airports::airport*> Airports::readCleanData() {
+    map<string, Airports::airport*> airports;
 
     return airports;
 }

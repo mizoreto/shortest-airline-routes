@@ -2,6 +2,7 @@
 #include "read_airport.cpp"
 
 int main() {
-    map<string, airport> test = readRawData();
+    Airports apts;
+    map<string, Airports::airport*> test = apts.readRawData();
     return 0;
 }
