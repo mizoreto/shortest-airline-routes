@@ -24,28 +24,30 @@ map<string, Airports::airport*> Airports::readRawData() {
         // cout << "Airport name: "<< parts[1] << endl;
         // cout << "Airport ID: "<< parts[4] << endl;
         
-        airport newAirport;
+        airport * newAirport = new airport();
         cout << "line 28" << endl;
-        if (parts[4] != "\\N") newAirport.ID = parts[4];
-        else newAirport.ID = parts[5];
+        if (parts[4] != "\\N") newAirport->ID = parts[4];
+        else newAirport->ID = parts[5];
+        newAirport->ID.erase(newAirport->ID.begin());
+        newAirport->ID.erase(newAirport->ID.end()-1);
         cout << "line 31" << endl;
         //cout << "newAirport ID: "<< newAirport.ID << endl;
-        newAirport.lat = strtod(parts[6].c_str() , NULL);
-        newAirport.lon = strtod(parts[7].c_str() , NULL);
+        newAirport->lat = strtod(parts[6].c_str() , NULL);
+        newAirport->lon = strtod(parts[7].c_str() , NULL);
         // cout << "Airport lati: "<< newAirport.lat << endl;
         // cout << "Airport long: "<< newAirport.lon << endl;
         cout << "line 37" << endl;
-        airports.insert(pair<string, airport*> (newAirport.ID, &newAirport));
+        airports.insert(pair<string, airport*> (newAirport->ID, newAirport));
         cout << "line 39" << endl;
         
         count++;
     }
     cout << "line 43" << endl;
     map<string, Airports::airport*>::iterator it = airports.begin();
-    advance(it, 305);
+    advance(it, 104);
     cout << "This airport is " << it->second->ID << endl;
     cout << "airports has size " << airports.size() << endl;
-    cout << "This airport is " << airports["GPI"]->ID << endl;
+    cout << "This airport is " << airports["MAG"]->ID << endl;
     return airports;
 }
 
