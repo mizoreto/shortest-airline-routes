@@ -6,4 +6,7 @@
 
 using namespace std;
 
-map<string, pair<vector<string>, vector<double> > > read_routes();
+//class Routes {
+    std::map<string, pair<vector<string>, vector<double> > > read_routes();
+    double haversine_dist(double lat_1, double long_1, double lat_2, double long_2);
+//};
