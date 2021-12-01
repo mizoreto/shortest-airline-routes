@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# g++ executables
+/src/main
+/src/test

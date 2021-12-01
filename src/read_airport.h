@@ -12,11 +12,11 @@ class Airports {
         double lat, lon; //latitude and longitude
     };
 
-    map<string, airport*> readRawData();
+    void readRawData();
 
     void writeCleanData(map<string, airport*> airports);
 
-    map<string, airport*> readCleanData();
+    void readCleanData();
     
     map<string, airport*> airports;
 };
