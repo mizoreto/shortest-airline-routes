@@ -1,5 +1,6 @@
+#pragma once
 #define _USE_MATH_DEFINES
-#define E_RADIUS = 6371
+#define E_RADIUS 6371
 
 #include "read_routes.h"
 #include "read_airport.h"
@@ -18,7 +19,7 @@ map<string, pair<vector<string>, vector<double> > > read_routes() {
     string routes;
     ifstream inFile;
     Airports raw_data;
-    map<string, airport*> airport_data = readRawData();
+    map<string, Airports::airport*> airport_data = raw_data.readRawData();
     
     inFile.open("routes.dat");
     if (!inFile) {
