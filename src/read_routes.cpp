@@ -37,11 +37,14 @@ map<string, pair<vector<string>, vector<double> > > read_routes() {
             getline(ss, substr, ',');
             v.push_back(substr);
         }
-        cout<<"v[2]: "<<v[2]<<"  "<<"v[4]: "<<v[4]<<endl;
+        
+        //cout<<"v[2]: "<<v[2]<<"  "<<"v[4]: "<<v[4]<<endl;
+        if (airport_data.find(v[2]) == airport_data.end() 
+            || airport_data.find(v[4]) == airport_data.end()) {
+                continue;
+        }
         result_routes[v[2]].first.push_back(v[4]);
-        cout<<__LINE__<<endl;
         double src_lat = airport_data[v[2]]->lat;
-        cout<<__LINE__<<endl;
         double src_long = airport_data[v[2]]->lon;
         double dest_lat = airport_data[v[4]]->lat;
         double dest_long = airport_data[v[4]]->lon;
@@ -57,6 +60,7 @@ map<string, pair<vector<string>, vector<double> > > read_routes() {
         count++;
         for (unsigned i = 0; i < it->second.first.size(); i ++) {
             cout<<"destination: "<< it->second.first[i] <<endl;
+            cout<<"distance: "<<it->second.second[i]<<endl;
         }
         if (count == 5) {
             break;
