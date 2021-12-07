@@ -7,5 +7,6 @@ int main() {
     Airports apts;
     apts.readRawData();
     apts.readCleanData();
+    // cout << apts.airports["TRF"]->ID << endl;
     return 0;
 }

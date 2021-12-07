@@ -18,10 +18,12 @@ void Airports::readRawData() {
         string parts[14];
         for (int i = 0; i < 8; i++) {
             size_t commaIndex = lineText.find(',');
+            size_t specialCommaIndex = lineText.find(", ");
+            if (specialCommaIndex != string::npos && specialCommaIndex <= commaIndex) 
+                commaIndex = lineText.find(',', specialCommaIndex + 1);
             parts[i] = lineText.substr(0, commaIndex);
             lineText.erase(0, commaIndex + 1);
         }
-
         airport * newAirport = new airport(); //creating a new airport object and setting up its variables.
         if (parts[4] != "\\N") newAirport->ID = parts[4];
         else newAirport->ID = parts[5];
