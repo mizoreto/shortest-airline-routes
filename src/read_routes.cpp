@@ -38,8 +38,7 @@ map<string, pair<vector<string>, vector<double> > > read_routes() {
             v.push_back(substr);
         }
         result_routes[v[2]].first.push_back(v[4]);
-
-
+        //if ()
         double src_lat = airport_data[v[2]]->lat;
         double src_long = airport_data[v[2]]->lon;
         double dest_lat = airport_data[v[4]]->lat;
