@@ -6,6 +6,6 @@
 int main() {
     Airports apts;
     apts.readRawData();
-    map<string, Airports::airport*> test = apts.airports;
+    apts.readCleanData();
     return 0;
 }

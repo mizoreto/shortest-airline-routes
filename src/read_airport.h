@@ -11,13 +11,27 @@ class Airports {
         string ID; //ID stores 3 or 4 airport letter ID.
         double lat, lon; //latitude and longitude
     };
-
+    /*
+        readRawData() reads data from airports.dat, which is the file obtained directly from openflights.org,
+        and it inserts the airport data into the map airports.
+        It will also call writeCleanData().
+    */
     void readRawData();
-
-    void writeCleanData(map<string, airport*> airports);
-
+    /*
+        writeCleanData() writes the data into airports_clean.dat, storing only the needed information.
+        It should be used with readCleanData() to improve data clarity and reduce reading time.
+    */
+    void writeCleanData();
+    /*
+        readCleanData() reads data from airports_clean.dat, and inserts the airport data into the map airports.
+        only works when airports_clean.dat is present and contains airport data.
+    */
     void readCleanData();
-    
+    /*
+        A map containing information for all airports, it acts as a collection of all vertices (airports).
+        The keys are strings, which are 3 or 4-charcter IDs of the airports.
+        The values are airport structs, which contain the ID, latitude, longitude of an airport.
+    */
     map<string, airport*> airports;
 };
 
