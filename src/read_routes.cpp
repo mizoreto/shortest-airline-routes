@@ -19,8 +19,9 @@ map<string, pair<vector<string>, vector<double> > > read_routes() {
     string routes;
     ifstream inFile;
     Airports raw_data;
-    map<string, Airports::airport*> airport_data = raw_data.readRawData();
-    
+    raw_data.readCleanData();
+    map<string, Airports::airport*> airport_data = raw_data.airports;
+    cout<<"route read starts"<<endl;
     inFile.open("routes.dat");
     if (!inFile) {
         cout<<"Failed to open file"<<endl;
@@ -37,13 +38,17 @@ map<string, pair<vector<string>, vector<double> > > read_routes() {
             v.push_back(substr);
         }
         result_routes[v[2]].first.push_back(v[4]);
+
+
         double src_lat = airport_data[v[2]]->lat;
         double src_long = airport_data[v[2]]->lon;
         double dest_lat = airport_data[v[4]]->lat;
         double dest_long = airport_data[v[4]]->lon;
+
         double src_dest_dist = haversine_dist(src_lat, src_long, dest_lat, dest_long);
         result_routes[v[2]].second.push_back(src_dest_dist);
     }
+    cout<<"routes read complete"<<endl;
     inFile.close();
 
     map<string, pair<vector<string>, vector<double> > >::iterator it;
