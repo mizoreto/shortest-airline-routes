@@ -13,6 +13,15 @@ int main() {
     apts.readCleanData();
     // cout << apts.airports["TRF"]->ID << endl;
     map<string, pair<vector<string>, vector<double> > > test_1 = read_routes();
+    // all the source airports in the map
+    cout<<"================="<<endl;
+    map<string, pair<vector<string>, vector<double> > >::iterator it;
+    int count = 1;
+    for(it = test_1.begin(); it != test_1.end(); it++) {
+        cout<<"airport number "<< count <<": "<<it->first <<endl;
+        count++;
+    }
+
     BFS("AER");
     return 0;
 }

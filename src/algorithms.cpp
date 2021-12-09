@@ -75,10 +75,10 @@ void BFS(std::string startVertex) {
 
 
     // std::map<std::string, bool>::iterator it;
-
+    int count = 0;
     while (!q.empty()) {
         string currVertex = q.front();
-        std::cout << "Visited " << currVertex << " " <<endl;;
+        std::cout << "Visited " <<count++<<":"<< currVertex << " " <<endl;;
         q.pop();
 
         for (int i = 0; i < airports.size(); ++i) {
