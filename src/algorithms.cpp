@@ -45,7 +45,8 @@ void BFS(std::string startVertex) {
     // using the map to get all airports
     // that are within the same connected component as the starting airport
 
-    std::pair<vector<string>, vector<double>> airports_pair = result_routes[startVertex];
+
+    std::pair<vector<string>, vector<double> > airports_pair = read_routes()[startVertex];
 
     vector<string> airports = airports_pair.first;
 
