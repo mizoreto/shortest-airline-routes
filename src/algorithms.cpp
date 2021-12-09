@@ -1,5 +1,10 @@
 #include "algorithms.h"
 
+#include <iostream>
+#include <queue>
+#include <string>
+#include <map>
+
 
 // BFS algorithm
 
@@ -36,11 +41,11 @@
 
 
 
-void BFS(string startVertex) {
+void BFS(std::string startVertex) {
     // using the map to get all airports
     // that are within the same connected component as the starting airport
 
-    pair<vector<string>, vector<double>> airports_pair = result_routes.get(startVertex);
+    std::pair<vector<string>, vector<double>> airports_pair = result_routes[startVertex];
 
     vector<string> airports = airports_pair.first;
 
@@ -49,27 +54,39 @@ void BFS(string startVertex) {
     // for (int i = 0; i < airports.size(); i++)
     //     visited[i] = false;
 
-    queue<string> queue;
 
-    queue.push_back(startVertex);
+    // used to keep track of whether an airport is visited
+    std::map<string, bool> visited;
 
-    for (int i = 0; i < airports.size(); ++i) {
-            
-        queue.push_back(airports[i]);
+    for (int i = 0; i < airports.size(); i++) {
+        visited[airports[i]] = false;
     }
 
+    std::queue<string> q;
 
-    // while (!queue.empty()) {
-    //     int currVertex = queue.front();
-    //     cout << "Visited " << currVertex << " ";
-    //     queue.pop_front();
+    visited[startVertex] = true;
+    q.push(startVertex);
 
-    //     for (int i = 0; i < airports.size(); ++i) {
+    // for (int i = 0; i < airports.size(); ++i) {
             
-    //         if (!visited[i]) {
-    //             visited[i] = true;
-    //             queue.push_back(airports[i]);
-    //         }
-    //     }
+    //     queue.push_back(airports[i]);
     // }
+
+
+    // std::map<std::string, bool>::iterator it;
+
+    while (!q.empty()) {
+        string currVertex = q.front();
+        std::cout << "Visited " << currVertex << " ";
+        q.pop();
+
+        for (int i = 0; i < airports.size(); ++i) {
+            
+            if (!visited[airports[i]]) {
+                visited[airports[i]] = true;
+                q.push(airports[i]);
+            }
+        }
+
+    }
 }

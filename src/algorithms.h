@@ -4,5 +4,6 @@
 #include <queue>
 #include <string>
 #include <map>
+#include "read_routes.h"
 
-void BFS(string startVertex);
+void BFS(std::string startVertex);
