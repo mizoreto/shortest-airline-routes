@@ -89,5 +89,8 @@ void BFS(std::string startVertex) {
             }
         }
 
+        // update the airports vector, so that it continues to traverse all the other airports.
+        airports = read_routes()[q.front()].first;
+
     }
 }
