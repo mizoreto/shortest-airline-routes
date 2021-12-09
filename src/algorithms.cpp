@@ -78,7 +78,7 @@ void BFS(std::string startVertex) {
 
     while (!q.empty()) {
         string currVertex = q.front();
-        std::cout << "Visited " << currVertex << " ";
+        std::cout << "Visited " << currVertex << " " <<endl;;
         q.pop();
 
         for (int i = 0; i < airports.size(); ++i) {

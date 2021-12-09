@@ -53,19 +53,19 @@ map<string, pair<vector<string>, vector<double> > > read_routes() {
     }
     inFile.close();
 
-    map<string, pair<vector<string>, vector<double> > >::iterator it;
-    int count = 0;
-    for (it = result_routes.begin(); it != result_routes.end(); it++) {
-        cout<<"source: "<< it->first <<endl;
-        count++;
-        for (unsigned i = 0; i < it->second.first.size(); i ++) {
-            cout<<"destination: "<< it->second.first[i] <<endl;
-            cout<<"distance: "<<it->second.second[i]<<endl;
-        }
-        if (count == 5) {
-            break;
-        }
-    }
+    // map<string, pair<vector<string>, vector<double> > >::iterator it;
+    // int count = 0;
+    // for (it = result_routes.begin(); it != result_routes.end(); it++) {
+    //     cout<<"source: "<< it->first <<endl;
+    //     count++;
+    //     for (unsigned i = 0; i < it->second.first.size(); i ++) {
+    //         cout<<"destination: "<< it->second.first[i] <<endl;
+    //         cout<<"distance: "<<it->second.second[i]<<endl;
+    //     }
+    //     if (count == 5) {
+    //         break;
+    //     }
+    // }
     return result_routes;
 }
 
