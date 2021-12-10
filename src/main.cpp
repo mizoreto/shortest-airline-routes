@@ -14,14 +14,18 @@ int main() {
     // cout << apts.airports["TRF"]->ID << endl;
     map<string, pair<vector<string>, vector<double> > > test_1 = read_routes();
     // all the source airports in the map
-    cout<<"================="<<endl;
     map<string, pair<vector<string>, vector<double> > >::iterator it;
     int count = 1;
+    int len_zero = 0;
     for(it = test_1.begin(); it != test_1.end(); it++) {
         cout<<"airport number "<< count <<": "<<it->first <<endl;
         count++;
+        if ((it->second).first.size() == 0) {
+            len_zero++;
+        }
     }
+    cout<<len_zero<<endl;
 
-    BFS("AER");
+    //BFS("AER");
     return 0;
 }
