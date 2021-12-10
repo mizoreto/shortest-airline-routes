@@ -26,6 +26,12 @@ int main() {
     }
     cout<<len_zero<<endl;
 
+<<<<<<< HEAD
     //BFS("AER");
+=======
+    BFS("AER");
+    addDegreeToAirport(apts.airports, test_1);
+    string IDa = mostCentralAirport(apts.airports);
+>>>>>>> a21b79cd34c91af9307c49dffa65428af7580d26
     return 0;
 }

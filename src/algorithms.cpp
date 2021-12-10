@@ -42,6 +42,7 @@ void BFS(std::string startVertex) {
     }
 }
 
+<<<<<<< HEAD
 // int minDistance(string currAirport, double currDistance,map<string, double> distance, map<string, string> parent) {
 //     string parentAirport = parent[currAirport];
     
@@ -82,3 +83,31 @@ void BFS(std::string startVertex) {
         
 //     }
 // }   
+=======
+void addDegreeToAirport(map<string, Airports::airport*> airports, map<string, pair<vector<string>, vector<double> > > routes) {
+    if (airports.empty() || routes.empty()) {
+        cout << "airports has size " << airports.size() << ", routes has size " << routes.size() << endl;
+        return;
+    }
+    for (map<string, Airports::airport*>::iterator it = airports.begin(); it != airports.end(); ++it) //add degree to every airport.
+        it->second->degree = routes[it->second->ID].first.size();
+}
+
+string mostCentralAirport(map<string, Airports::airport*> airports) {
+    Airports::airport* currMax = new Airports::airport("Default", -1, -1, -1);
+    Airports::airport* currMaxSaver = currMax;
+    for (map<string, Airports::airport*>::iterator it = airports.begin(); it != airports.end(); ++it) {//check for max centrality at every airport.
+        if (currMax->degree <= it->second->degree) currMax = it->second;
+        else continue;
+    }
+    if (currMax == NULL) {
+        cout << "Error: Something went wrong, degree centrality failed." << endl;
+        return "";
+    }
+    //Give results.
+    cout << "Task Complete: Degree Centrality completed." << endl;
+    cout << "Airport with most flights is " << currMax->ID << ", it has a degree of " << currMax->degree << endl;
+    delete currMaxSaver;
+    return currMax->ID;
+}
+>>>>>>> a21b79cd34c91af9307c49dffa65428af7580d26
