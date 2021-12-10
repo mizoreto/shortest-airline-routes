@@ -23,5 +23,7 @@ int main() {
     }
 
     BFS("AER");
+    addDegreeToAirport(apts.airports, test_1);
+    string IDa = mostCentralAirport(apts.airports);
     return 0;
 }

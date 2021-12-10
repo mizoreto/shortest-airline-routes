@@ -10,6 +10,15 @@ class Airports {
     struct airport {
         string ID; //ID stores 3 or 4 airport letter ID.
         double lat, lon; //latitude and longitude
+        int degree; //the degree, or # of edges an airport has.
+
+        airport(string nID, double nlat, double nlon, int ndegree) {
+            ID = nID;
+            lat = nlat;
+            lon = nlon;
+            degree = ndegree;
+        };
+        airport() {};
     };
     /*
         readRawData() reads data from airports.dat, which is the file obtained directly from openflights.org,

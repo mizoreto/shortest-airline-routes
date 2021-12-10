@@ -31,6 +31,7 @@ void Airports::readRawData() {
         newAirport->ID.erase(newAirport->ID.end()-1);
         newAirport->lat = strtod(parts[6].c_str() , NULL);
         newAirport->lon = strtod(parts[7].c_str() , NULL);
+        newAirport->degree = -1;
         airports.insert(pair<string, airport*> (newAirport->ID, newAirport));
         
         count++;
