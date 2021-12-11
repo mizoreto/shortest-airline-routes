@@ -1,13 +1,16 @@
 #include "algorithms.h"
 #include <iostream>
 #include <queue>
+#include <vector>
 #include <string>
 #include <map>
 #include <iterator>
-
-//#define INF INT_MAX
+#include <utility>
+#include <climits>
 
 using namespace std;
+
+typedef pair<double, string> pq_pair;
 // BFS algorithm
 // reference: https://www.programiz.com/dsa/graph-bfs
 
@@ -42,48 +45,57 @@ void BFS(std::string startVertex) {
     }
 }
 
-<<<<<<< HEAD
-// int minDistance(string currAirport, double currDistance,map<string, double> distance, map<string, string> parent) {
-//     string parentAirport = parent[currAirport];
+
+double dijkstra(string startVertex, string endVertex) {
+    map<string, pair<vector<string>, vector<double> > > routes_data = read_routes();
+    map<string, pair<vector<string>, vector<double> > >::iterator it;
+    priority_queue<pq_pair, vector<pq_pair>, greater<pq_pair> > pq;
+    map<string, bool> visited;
+    map<string, double> distance;
+    map<string, string> parent;
+    //initialize the visited, distance, and parent maps
+    cout<<"initialization started" <<endl;
+    for (it = routes_data.begin(); it != routes_data.end(); it++) {
+        for (int i = 0; i < it->second.first.size(); i++) {  
+            string curr_key = (it->second.first)[i];
+
+            visited[curr_key] = false;
+            distance[curr_key] = INT_MAX;
+            parent[curr_key] = "NULL";
+        }
+    }
+    cout<<"initialization complete"<<endl;
+    distance[startVertex] = 0;
+    parent[startVertex] = "/";
     
-// }
+    pq.push(make_pair(0.0, startVertex));
+    cout<<"pq traversal start"<<endl;
+    int count = 0;
+    while(!pq.empty()) {
+        string curr_node = pq.top().second;
+        double minDist = pq.top().first;
+        visited[curr_node] = true;
 
-// void dijkstra(string startVertex, string endVertex) {
-//     map<string, pair<vector<string>, vector<double> > > routes_data = read_routes();
-//     map<string, pair<vector<string>, vector<double> > >::iterator routes_it;
-//     map<string, bool> visited;
-//     map<string, double> distance;
-//     map<string, string> parent;
-//     queue<string> queue;
-//     //initialize the visited, distance, and parent maps
-//     for (routes_it = routes_data.begin(); routes_it != routes_data.end(); routes_it++) {
-//         string curr_key = routes_it->first;
-//         visited[curr_key] = false;
-//         distance[curr_key] = INF;
-//         parent[curr_key] = "NULL";
-//     }
-//     visited[startVertex] = true;
-//     distance[startVertex] = 0;
-//     parent[startVertex] = "/";
-//     queue.push(startVertex);
-//     for(routes_it = routes_data.begin(); routes_it != routes_data.end(); routes_it++) {
-//         string curr_key = queue.front();
-//         visited[curr_key] = true;
-//         vector<double> currDistSet = routes_data[curr_key]->second;
-//         vector<string> currDestSet = routes_data[curr_key]->first;
-//         vector<double> temp_distance;
-//         for (int i = 0; i < currDestSet.size(); i++) {
-//             string curr_dest = currDestSet[i];
-//             double curr_dist = currDistSet[i];
-//             if (!visited[curr_dest]) {
+        for (int i = 0; i < routes_data[curr_node].first.size(); i++) {
+            string edge_node = routes_data[curr_node].first[i];
+            double edge_length = routes_data[curr_node].second[i];
+            
+            if (visited[edge_node]) {
+                continue;
+            }
+            double new_distance = distance[curr_node] + edge_length;
+            if (new_distance < distance[edge_node]) {
+                distance[edge_node] = new_distance;
+                pq.push(make_pair(edge_length, edge_node));
+            }
+        }
+        cout<<"count: "<<count++<<"curr_node: "<<curr_node<<endl;
+        pq.pop();
+    }
+    cout<<"pq traversal complete"<<endl;
+    return distance[endVertex];
+}   
 
-//             }
-//         }
-//             visited[curr_key] = true;
-        
-//     }
-// }   
-=======
 void addDegreeToAirport(map<string, Airports::airport*> airports, map<string, pair<vector<string>, vector<double> > > routes) {
     if (airports.empty() || routes.empty()) {
         cout << "airports has size " << airports.size() << ", routes has size " << routes.size() << endl;
@@ -110,4 +122,3 @@ string mostCentralAirport(map<string, Airports::airport*> airports) {
     delete currMaxSaver;
     return currMax->ID;
 }
->>>>>>> a21b79cd34c91af9307c49dffa65428af7580d26
