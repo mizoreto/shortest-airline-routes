@@ -12,7 +12,9 @@ using namespace std;
 
 typedef pair<double, string> pq_pair;
 // BFS algorithm
-// reference: https://www.programiz.com/dsa/graph-bfs
+/* reference: https://www.programiz.com/dsa/graph-bfs
+              https://www.geeksforgeeks.org/priority-queue-of-pairs-in-c-with-ordering-by-first-and-second-element/
+*/
 
 void BFS(std::string startVertex) {
     // using the map to get all airports
@@ -28,7 +30,7 @@ void BFS(std::string startVertex) {
     int count = 0;
     while (!q.empty()) {
         string currVertex = q.front();
-        std::cout << "Visited " <<count++<<":"<< currVertex << " " <<endl;;
+        //std::cout << "Visited " <<count++<<":"<< currVertex << " " <<endl;;
         q.pop();
 
         for (int i = 0; i < airports.size(); ++i) {
@@ -43,34 +45,65 @@ void BFS(std::string startVertex) {
         airports = routes_data[q.front()].first;
 
     }
+} 
+
+void findMinDistance(string startVertex, string endVertex){
+    double min_distance = dijkstra(startVertex, endVertex).first;
+    vector<string> path = dijkstra(startVertex, endVertex).second;
+    if (min_distance == INT_MAX) {//if min_distance has not been updated, then the endVertex is not reachable
+        cout<<"destinatin airport not reachable"<<endl;
+        return;
+    } else if (min_distance == -1) {
+        cout<<"startVertex is invalid"<<endl;
+        return;
+    } else if (min_distance == -2) {
+        cout<<"endVertex is invalid"<<endl;
+        return;
+    }
+    reverse(path.begin(), path.end());
+
+    //print results
+    cout<<"The distance between source airport "<<startVertex<<" and "<<
+    "destination airport "<<endVertex<<" is: "<<min_distance<<" km"<<endl;
+    cout<<"The optimal path from "<<startVertex<<" to "<<endVertex<<" is: ";
+    int i = 0;
+    for (; i < path.size() - 1; i++) {
+        cout<<path[i]<<", ";
+    }
+    cout<<path[i]<<endl;
 }
 
-
-double dijkstra(string startVertex, string endVertex) {
+pair<double, vector<string> > dijkstra(string startVertex, string endVertex) {
     map<string, pair<vector<string>, vector<double> > > routes_data = read_routes();
     map<string, pair<vector<string>, vector<double> > >::iterator it;
     priority_queue<pq_pair, vector<pq_pair>, greater<pq_pair> > pq;
     map<string, bool> visited;
-    map<string, double> distance;
+    map<string, double> distance;//maps a airport ID to its distance from the starting vertex
     map<string, string> parent;
+
+    // deal with invalid inputs
+    if (routes_data.find(startVertex) == routes_data.end()) {
+        return make_pair(-1, vector<string> ());
+    }
+    if (routes_data.find(endVertex) == routes_data.end()) {
+        return make_pair(-2, vector<string> ());
+    }
+
     //initialize the visited, distance, and parent maps
-    cout<<"initialization started" <<endl;
+    cout<<"dijkstra initialization started" <<endl;
     for (it = routes_data.begin(); it != routes_data.end(); it++) {
         for (int i = 0; i < it->second.first.size(); i++) {  
             string curr_key = (it->second.first)[i];
-
+            parent[curr_key] = "NULL";
             visited[curr_key] = false;
             distance[curr_key] = INT_MAX;
-            parent[curr_key] = "NULL";
         }
     }
-    cout<<"initialization complete"<<endl;
+    cout<<"dijkstra initialization complete"<<endl;
+
     distance[startVertex] = 0;
-    parent[startVertex] = "/";
-    
     pq.push(make_pair(0.0, startVertex));
     cout<<"pq traversal start"<<endl;
-    int count = 0;
     while(!pq.empty()) {
         string curr_node = pq.top().second;
         double minDist = pq.top().first;
@@ -86,14 +119,22 @@ double dijkstra(string startVertex, string endVertex) {
             double new_distance = distance[curr_node] + edge_length;
             if (new_distance < distance[edge_node]) {
                 distance[edge_node] = new_distance;
+                parent[edge_node] = curr_node;
                 pq.push(make_pair(edge_length, edge_node));
             }
         }
-        cout<<"count: "<<count++<<"curr_node: "<<curr_node<<endl;
         pq.pop();
     }
-    cout<<"pq traversal complete"<<endl;
-    return distance[endVertex];
+
+    // store the path into a string vector
+    string curr_airport = endVertex;
+    vector<string> path;
+    path.push_back(endVertex);
+    while (curr_airport != startVertex) {
+        curr_airport = parent[curr_airport];
+        path.push_back(curr_airport);
+    }
+    return make_pair(distance[endVertex], path);
 }   
 
 void addDegreeToAirport(map<string, Airports::airport*> airports, map<string, pair<vector<string>, vector<double> > > routes) {

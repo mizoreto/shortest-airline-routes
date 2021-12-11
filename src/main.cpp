@@ -12,23 +12,12 @@ int main() {
     apts.readRawData();
     apts.readCleanData();
     // cout << apts.airports["TRF"]->ID << endl;
-    map<string, pair<vector<string>, vector<double> > > test_1 = read_routes();
+    map<string, pair<vector<string>, vector<double> > > routes = read_routes();
     // all the source airports in the map
-    map<string, pair<vector<string>, vector<double> > >::iterator it;
-    int count = 1;
-    int len_zero = 0;
-    for(it = test_1.begin(); it != test_1.end(); it++) {
-        cout<<"airport number "<< count <<": "<<it->first <<endl;
-        count++;
-        if ((it->second).first.size() == 0) {
-            len_zero++;
-        }
-    }
-    cout<<len_zero<<endl;
 
     BFS("AER");
-    addDegreeToAirport(apts.airports, test_1);
-    cout<<dijkstra("AER", "AER")<<endl;
+    findMinDistance("AER", "JFK");
+    addDegreeToAirport(apts.airports, routes);
     string IDa = mostCentralAirport(apts.airports);
     return 0;
 }
