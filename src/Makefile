@@ -1,9 +1,8 @@
 EXENAME = main
 TEST = test
-OBJS = main.o algorithms.o read_airport.o read_routes.o
+OBJS = main.o
 
 
-OBJS_DIR = .objs
 CXX = clang++
 CXXFLAGS = $(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
 LD = clang++
@@ -14,22 +13,21 @@ LDFLAGS = -std=c++1y -stdlib=libc++ -lc++abi -lm
 all : $(EXENAME)
 
 
-$(EXENAME): output_msg $(patsubst %.o, $(OBJS_DIR)/%.o, $(OBJS))
-	$(LD) $(filter-out $<, $^) $(LDFLAGS) -o $@
+output_msg: ; $(CLANG_VERSION_MSG)
 
-$(OBJS_DIR)/%.o: %.cpp | $(OBJS_DIR)
-	$(CXX) $(CXXFLAGS) $< -o $@
+$(EXENAME) : output_msg $(OBJS)
+	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
-main.o : main.cpp algorithms.cpp read_airport.cpp read_routes.cpp
+main.o : main.cpp algorithms.h read_airport.h read_routes.h
 	$(CXX) $(CXXFLAGS) main.cpp
 
-algorithms.o : algorithms.cpp algorithms.h
+algorithms.o : algorithms.cpp algorithms.h read_airport.h read_routes.h
 	$(CXX) $(CXXFLAGS) algorithms.cpp
 
 read_airport.o: read_airport.cpp read_airport.h
 	$(CXX) $(CXXFLAGS) read_airport.cpp
 
-read_routes.o: read_routes.cpp read_routes.h read_airport.cpp read_airport.h
+read_routes.o: read_routes.cpp read_routes.h read_airport.h
 	$(CXX) $(CXXFLAGS) read_routes.cpp
 
 clean :

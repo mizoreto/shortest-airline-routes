@@ -15,11 +15,9 @@
 
 using namespace std;
 
-void read_routes() {
-    return read_routes("routes.dat");
-}
+void routes::read_routes() {read_routes("routes.dat");}
 
-void read_routes(string file_name) {
+void routes::read_routes(string file_name) {
     string routes;
     ifstream inFile;
     Airports raw_data;
@@ -32,7 +30,6 @@ void read_routes(string file_name) {
         exit(1); //terminate program
     }
     //file opened succesfully
-    map<string, pair<vector<string>, vector<double> > > result_routes;
     string line_text;
     //traverse by line in the given file
     while (getline(inFile, line_text)) {
@@ -52,7 +49,7 @@ void read_routes(string file_name) {
         }
         //add the destination airport to the vector that stores all
         //the destinations of the corresponding source airport
-        result_routes[v[2]].first.push_back(v[4]);
+        routes_map[v[2]].first.push_back(v[4]);
         
         //get the latitutdes and longitudes of the source and destination
         //airport and calculate distance in between
@@ -62,13 +59,12 @@ void read_routes(string file_name) {
         double dest_long = airport_data[v[4]]->lon;
         double src_dest_dist = haversine_dist(src_lat, src_long, dest_lat, dest_long);
         //store the distance into the corresponding vector
-        result_routes[v[2]].second.push_back(src_dest_dist);
+        routes_map[v[2]].second.push_back(src_dest_dist);
     }
     inFile.close();
-    routes_map = result_routes;
 }
 
-double haversine_dist(double lat_1, double long_1, double lat_2, double long_2) {
+double routes::haversine_dist(double lat_1, double long_1, double lat_2, double long_2) {
     double lat_diff = cvrtToRad(lat_2 - lat_1);
     double lon_diff = cvrtToRad(long_1 - long_2);
     double a = pow(sin(lat_diff / 2), 2) + cos(cvrtToRad(lat_1)) * 
@@ -77,6 +73,6 @@ double haversine_dist(double lat_1, double long_1, double lat_2, double long_2) 
     return E_RADIUS * c;   
 }
 
-double cvrtToRad(double degree) {
+double routes::cvrtToRad(double degree) {
     return degree * (M_PI / 180);
 }
