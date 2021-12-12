@@ -44,4 +44,6 @@ After the main function is run, it will ask for two inputs: the starting airport
 
 `src/algorithms.cpp` - Contains BFS, Dijkstra's, and the Degree Centrality algorithm. Linked to `src/algorithms.h`
 
+`src/tests` - Contains the entire test suite for the project
+
 # Test Suite
