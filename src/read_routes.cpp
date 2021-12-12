@@ -40,8 +40,6 @@ map<string, pair<vector<string>, vector<double> > > read_routes() {
             getline(ss, substr, ',');
             v.push_back(substr);
         }
-        //cout<<"v[2]: "<<v[2]<<"  "<<"v[4]: "<<v[4]<<endl;
-
         //skip to the next line if the airports in the current
         //line doesn't exist in airports.dat
         if (airport_data.find(v[2]) == airport_data.end() 
