@@ -67,16 +67,16 @@ void findMinDistance(string startVertex, string endVertex){
         cout<<"destinatin airport not reachable"<<endl;
         return;
     } else if (min_distance == -1) {
-        cout<<"startVertex is invalid"<<endl;
+        cout<<"starting point input is invalid"<<endl;
         return;
     } else if (min_distance == -2) {
-        cout<<"endVertex is invalid"<<endl;
+        cout<<"end point input is invalid"<<endl;
         return;
     }
     reverse(path.begin(), path.end());
 
     //print results
-    cout<<"The distance between source airport "<<startVertex<<" and "<<
+    cout<<"The shortest distance between source airport "<<startVertex<<" and "<<
     "destination airport "<<endVertex<<" is: "<<min_distance<<" km"<<endl;
     cout<<"The optimal path from "<<startVertex<<" to "<<endVertex<<" is: ";
     int i = 0;
