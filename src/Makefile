@@ -30,5 +30,8 @@ read_airport.o: read_airport.cpp read_airport.h
 read_routes.o: read_routes.cpp read_routes.h read_airport.h
 	$(CXX) $(CXXFLAGS) read_routes.cpp
 
+catchmain.o : catch/catchmain.cpp catch/catch.hpp
+	$(CXX) $(CXXFLAGS) catch/catchmain.cpp
+
 clean :
 	-rm -f *.o .txt $(EXENAME) test
