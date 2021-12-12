@@ -19,7 +19,7 @@ pair<map<string, string>, map<string, double> > BFS(std::string startVertex);
  * @return a pair object containing minimum distance as a double and vector of all airports visited in this travel.
 */
 
-pair<double, vector<string> > findMinDistance(string startVertex, string endVertex);
+pair<double, vector<string> > findMinDistance(string startVertex, string endVertex, map<string, pair<vector<string>, vector<double> > > routes_data);
 
 /**
  * returns the pair where the first element is the distance between two designated airports

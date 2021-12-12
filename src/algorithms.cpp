@@ -58,8 +58,8 @@ pair<map<string, string>, map<string, double> > BFS(std::string startVertex,
     return make_pair(parent, distance);
 } 
 
-pair<double, vector<string> > findMinDistance(string startVertex, string endVertex){
-    pair<double, vector<string> > dijkstra_pair = dijkstra(startVertex, endVertex);
+pair<double, vector<string> > findMinDistance(string startVertex, string endVertex, map<string, pair<vector<string>, vector<double> > > routes_data){
+    pair<double, vector<string> > dijkstra_pair = dijkstra(startVertex, endVertex, routes_data);
     double min_distance = dijkstra_pair.first;
     vector<string> path = dijkstra_pair.second;
     if (min_distance == INT_MAX) {
