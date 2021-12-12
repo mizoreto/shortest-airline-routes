@@ -28,9 +28,9 @@ int main() {
             cout << "Please try again and enter valid airport IDs." << endl;
         }
     }
-
     findMinDistance(departing, destination); //runs and prints the result dijkstra's algorithm.
     addDegreeToAirport(apts.airports, routes); //prepares the airport objects for degree centrality algorithm.
     mostCentralAirport(apts.airports); //runs and prints the result of degree centrality algorithm.
+
     return 0;
 }
