@@ -33,11 +33,11 @@ pair<double, vector<string> > dijkstra(string startVertex, string endVertex);
 
 
 /**
- * Add degrees to airport objects. Needed fo degree centrality algorithm.
+ * Add out degrees to airport objects. Needed fo degree centrality algorithm.
  */
 void addDegreeToAirport(map<string, Airports::airport*> airports, map<string, pair<vector<string>, vector<double> > > routes);
 
 /**
- * Finds and returns the ID of the airport with the most number of edges.
+ * Finds and returns the ID of the airport with the highest out degree.
  */
 string mostCentralAirport(map<string, Airports::airport*> airports);

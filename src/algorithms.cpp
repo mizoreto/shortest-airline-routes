@@ -113,7 +113,7 @@ pair<double, vector<string> > dijkstra(string startVertex, string endVertex) {
 
 void addDegreeToAirport(map<string, Airports::airport*> airports, map<string, pair<vector<string>, vector<double> > > routes) {
     if (airports.empty() || routes.empty()) {
-        cout << "airports has size " << airports.size() << ", routes has size " << routes.size() << endl;
+        cout << "Error: airports has size " << airports.size() << ", routes has size " << routes.size() << endl;
         return;
     }
     for (map<string, Airports::airport*>::iterator it = airports.begin(); it != airports.end(); ++it) //add degree to every airport.
@@ -132,8 +132,7 @@ string mostCentralAirport(map<string, Airports::airport*> airports) {
         return "";
     }
     //Give results.
-    cout << "Task Complete: Degree Centrality completed." << endl;
-    cout << "Airport with most flights is " << currMax->ID << ", it has a degree of " << currMax->degree << endl;
+    cout << "Airport with most departing flights is " << currMax->ID << ", it has an out degree of " << currMax->degree << endl;
     delete currMaxSaver;
     return currMax->ID;
 }
