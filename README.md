@@ -35,7 +35,7 @@ After the main function is run, it will ask for two inputs: the starting airport
 
 `src/read_airport.cpp` - Reads raw data from airports.dat, the file from openflights.org. Linked to `src/read_airport.h`
 
-`src/read_routes.cpp` - Linked to `src/read_routes.h`
+`src/read_routes.cpp` - Reads routes data from routes.dat. Linked to `src/read_routes.h`
 
 `src/algorithms.cpp` - Contains BFS, Dijkstra's, and the Degree Centrality algorithm. Linked to `src/algorithms.h`
 
