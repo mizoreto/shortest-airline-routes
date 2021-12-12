@@ -33,7 +33,7 @@ After the main function is run, it will ask for two inputs: the starting airport
 
 `src/` - Contains all relevant source code for the project
 
-`src/read_airport.cpp` - Linked to `src/read_airport.h`
+`src/read_airport.cpp` - Reads raw data from airports.dat, the file from openflights.org. Linked to `src/read_airport.h`
 
 `src/read_routes.cpp` - Linked to `src/read_routes.h`
 
