@@ -21,8 +21,9 @@ by using Degree Centrality algorithm.
 All of the code execution and compilation commands must be run in the `src/` directory of the project.
 
 To run this project:
-`$ make`
-`$ ./main`
+
+`$ make
+$./main`
 
 `g++ -o test main.cpp` -
 
