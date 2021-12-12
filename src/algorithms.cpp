@@ -92,7 +92,7 @@ pair<double, vector<string> > findMinDistance(string startVertex, string endVert
 }
 
 pair<double, vector<string> > dijkstra(string startVertex, string endVertex) {
-    map<string, pair<vector<string>, vector<double> > > routes_data = read_routes();
+    map<string, pair<vector<string>, vector<double> > > routes_data = read_routes("routes.dat");
     cout<<"Looking for shortest path..."<<endl;
     pair<map<string, string>, map<string, double> > result_pair = BFS(startVertex);
     map<string, double> distance = result_pair.second;
