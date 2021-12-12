@@ -20,26 +20,32 @@ class Airports {
         };
         airport() {};
     };
-    /*
-        readRawData() reads data from airports.dat, which is the file obtained directly from openflights.org,
-        and it inserts the airport data into the map airports.
-        It will also call writeCleanData().
+    /**
+     * readRawData() reads data from airports.dat, which is the file obtained directly from openflights.org,
+     * and it inserts the airport data into the map airports.
+     * It will also call writeCleanData().
+     * @param URL url of the input data file. If no URL is given, then the default is "airports.dat"
     */
     void readRawData();
-    /*
-        writeCleanData() writes the data into airports_clean.dat, storing only the needed information.
-        It should be used with readCleanData() to improve data clarity and reduce reading time.
+    void readRawData(string URL);
+    /**
+     * writeCleanData() writes the data into a .dat with a clean format, storing only the needed information.
+     * It is used with readCleanData() to improve data clarity and reduce reading time.
+     * @param URL url of the output data file. If no URL is given, then the default is "airports_clean.dat"
     */
     void writeCleanData();
-    /*
-        readCleanData() reads data from airports_clean.dat, and inserts the airport data into the map airports.
-        only works when airports_clean.dat is present and contains airport data.
+    void writeCleanData(string URL);
+    /**
+     * readCleanData() reads data from a data file with the clean format, and inserts the airport data into the map airports.
+     * only works when input file is present and contains airport data in the clean format.
+     * @param URL url of the input data file. If no URL is given, then the default is "airports_clean.dat"
     */
     void readCleanData();
+    void readCleanData(string URL);
     /*
         A map containing information for all airports, it acts as a collection of all vertices (airports).
         The keys are strings, which are 3 or 4-charcter IDs of the airports.
-        The values are airport structs, which contain the ID, latitude, longitude of an airport.
+        The values are airport structs, which contain the ID, latitude, longitude, and degree of an airport.
     */
     map<string, airport*> airports;
 };
