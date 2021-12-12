@@ -21,3 +21,5 @@ All of the code execution and compilation commands must be run in the `src/` dir
 `src/read_routes.cpp` - Linked to `src/read_routes.h`
 
 `src/algorithms.cpp` - Contains BFS, Dijkstra's, and the Degree Centrality algorithm. Linked to `src/algorithms.h`
+
+# Test Suite
