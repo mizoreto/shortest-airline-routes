@@ -36,8 +36,8 @@ test: output_msg catchmain.o test_1.o
 catchmain.o : catch/catchmain.cpp catch/catch.hpp
 	$(CXX) $(CXXFLAGS) catch/catchmain.cpp
 
-test_1.o : test/test_1.cpp catch/catch.hpp algorithms.h read_airport.h read_routes.h
-	$(CXX) $(CXXFLAGS) test/test_1.cpp
+test_1.o : tests/test_1.cpp catch/catch.hpp algorithms.h read_airport.h read_routes.h
+	$(CXX) $(CXXFLAGS) tests/test_1.cpp
 
 clean :
 	-rm -f *.o .txt $(EXENAME) test
