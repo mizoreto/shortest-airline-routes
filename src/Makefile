@@ -30,8 +30,14 @@ read_airport.o: read_airport.cpp read_airport.h
 read_routes.o: read_routes.cpp read_routes.h read_airport.h
 	$(CXX) $(CXXFLAGS) read_routes.cpp
 
+test: output_msg catchmain.o test_1.o
+	$(LD) catchmain.o test_1.o $(LDFLAGS) -o test
+
 catchmain.o : catch/catchmain.cpp catch/catch.hpp
 	$(CXX) $(CXXFLAGS) catch/catchmain.cpp
+
+test_1.o : test/test_1.cpp catch/catch.hpp algorithms.h read_airport.h read_routes.h
+	$(CXX) $(CXXFLAGS) test/test_1.cpp
 
 clean :
 	-rm -f *.o .txt $(EXENAME) test

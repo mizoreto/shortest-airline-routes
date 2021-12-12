@@ -1,6 +1,6 @@
-#include "algorithms.h"
-#include "read_routes.h"
-#include "read_airport"
+#include "../algorithms.h"
+#include "../read_routes.h"
+#include "../read_airport.h"
 
 using namespace std;
 
@@ -17,7 +17,7 @@ using namespace std;
 // ,,SAN,,PEK,,,,
 
 //TEST_CASE("test the beijing has greater distance than arc", "[weight=1][part=1]") {
-void test_case-1() {
+void test_case_1() {
     Airport test_airports;
     routes test_routes;
     airport ARC(ARC, 40.1013125, -88.2381926, -1);
