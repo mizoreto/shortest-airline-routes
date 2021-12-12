@@ -29,9 +29,18 @@ int main() {
             cout << "Please try again and enter valid airport IDs." << endl;
         }
     }
-    findMinDistance(departing, destination); //runs and prints the result dijkstra's algorithm.
+    pair<double, vector<string> > dijkstraResult = findMinDistance(departing, destination); //runs and prints the result dijkstra's algorithm.
     addDegreeToAirport(apts.airports, routes); //prepares the airport objects for degree centrality algorithm.
-    mostCentralAirport(apts.airports); //runs and prints the result of degree centrality algorithm.
+    pair<string, double> degreeCentralityResult =  mostCentralAirport(apts.airports); //runs and prints the result of degree centrality algorithm.
 
+    saveOutput(departing, destination, dijkstraResult, degreeCentralityResult, "result.txt");
     return 0;
+}
+
+void saveOutput(string departing, string arriving, pair<double, vector<string> > dijkstraResult, pair<string, double> degreeCentralityResult, string URL) {
+    ofstream outFile(URL.c_str());
+    outFile << "Departing Airport: " << departing << endl;
+    outFile << "Arriving Airport: " << arriving << endl;
+    outFile << "Path Taken: " << endl;
+    outFile
 }

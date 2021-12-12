@@ -58,20 +58,23 @@ pair<map<string, string>, map<string, double> > BFS(std::string startVertex) {
     return make_pair(parent, distance);
 } 
 
-void findMinDistance(string startVertex, string endVertex){
+pair<double, vector<string> > findMinDistance(string startVertex, string endVertex){
     pair<double, vector<string> > dijkstra_pair = dijkstra(startVertex, endVertex);
     double min_distance = dijkstra_pair.first;
     vector<string> path = dijkstra_pair.second;
     if (min_distance == INT_MAX) {
         //if min_distance has not been updated, then that means the endVertex is not reachable
-        cout<<"destinatin airport not reachable"<<endl;
-        return;
+        cout<<"Destinatin airport not reachable"<<endl;
+        vector<string> badResult; badResult.push_back("Destinatin airport not reachable");
+        return pair<double, vector<string> > (-1, badResult);
     } else if (min_distance == -1) {
-        cout<<"starting point input is invalid"<<endl;
-        return;
+        cout<<"Departing airport has no flights"<<endl;
+        vector<string> badResult; badResult.push_back("Departing airport has no flights");
+        return pair<double, vector<string> > (-1, badResult);
     } else if (min_distance == -2) {
-        cout<<"end point input is invalid"<<endl;
-        return;
+        cout<<"Arriving airport has no flights"<<endl;
+        vector<string> badResult; badResult.push_back("Arriving airport has no flights");
+        return pair<double, vector<string> > (-1, badResult);
     }
     reverse(path.begin(), path.end());
 
@@ -84,6 +87,8 @@ void findMinDistance(string startVertex, string endVertex){
         cout<<path[i]<<", ";
     }
     cout<<path[i]<<endl;
+
+    return dijkstra_pair;
 }
 
 pair<double, vector<string> > dijkstra(string startVertex, string endVertex) {
@@ -120,7 +125,7 @@ void addDegreeToAirport(map<string, Airports::airport*> airports, map<string, pa
         it->second->degree = routes[it->second->ID].first.size();
 }
 
-string mostCentralAirport(map<string, Airports::airport*> airports) {
+pair<string, int> mostCentralAirport(map<string, Airports::airport*> airports) {
     Airports::airport* currMax = new Airports::airport("Default", -1, -1, -1);
     Airports::airport* currMaxSaver = currMax;
     for (map<string, Airports::airport*>::iterator it = airports.begin(); it != airports.end(); ++it) {//check for max centrality at every airport.
@@ -129,10 +134,10 @@ string mostCentralAirport(map<string, Airports::airport*> airports) {
     }
     if (currMax == NULL) {
         cout << "Error: Something went wrong, degree centrality failed." << endl;
-        return "";
+        return pair<string, double> ("", -1);
     }
     //Give results.
     cout << "Airport with most departing flights is " << currMax->ID << ", it has an out degree of " << currMax->degree << endl;
     delete currMaxSaver;
-    return currMax->ID;
+    return pair<string, double> (currMax->ID, currMax->degree);
 }

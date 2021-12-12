@@ -16,9 +16,10 @@ pair<map<string, string>, map<string, double> > BFS(std::string startVertex);
  * and the optimal path
  * @param string startVertex starting point of the two airports
  * @param string endVertex end points of the two airports
+ * @return a pair object containing minimum distance as a double and vector of all airports visited in this travel.
 */
 
-void findMinDistance(string startVertex, string endVertex);
+pair<double, vector<string> > findMinDistance(string startVertex, string endVertex);
 
 /**
  * returns the pair where the first element is the distance between two designated airports
@@ -34,10 +35,14 @@ pair<double, vector<string> > dijkstra(string startVertex, string endVertex);
 
 /**
  * Add out degrees to airport objects. Needed fo degree centrality algorithm.
+ * @param airports map of all airports.
+ * @param routes map of all routes.
  */
 void addDegreeToAirport(map<string, Airports::airport*> airports, map<string, pair<vector<string>, vector<double> > > routes);
 
 /**
  * Finds and returns the ID of the airport with the highest out degree.
+ * @param airports map of all airports.
+ * @return pair object containing ID of most central airport and its out degree.
  */
-string mostCentralAirport(map<string, Airports::airport*> airports);
+pair<string, int> mostCentralAirport(map<string, Airports::airport*> airports);
