@@ -24,6 +24,7 @@ void Airports::readRawData(string URL) {
             parts[i] = lineText.substr(0, commaIndex);
             lineText.erase(0, commaIndex + 1);
         }
+
         airport * newAirport = new airport(); //creating a new airport object and setting up its variables.
         if (parts[4] != "\\N") newAirport->ID = parts[4]; //if airport does not have 3-letter ID, use 4-letter ID instead.
         else newAirport->ID = parts[5];
@@ -69,6 +70,7 @@ void Airports::readCleanData(string URL) {
             parts[i] = lineText.substr(0, commaIndex);
             lineText.erase(0, commaIndex + 1);
         }
+        
         airport * newAirport = new airport(); //creating a new airport object and setting up its variables.
         newAirport->ID = parts[0];
         newAirport->lat = strtod(parts[1].c_str() , NULL);
