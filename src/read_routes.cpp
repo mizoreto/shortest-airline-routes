@@ -16,13 +16,17 @@
 using namespace std;
 
 map<string, pair<vector<string>, vector<double> > > read_routes() {
+    return read_routes("routes.dat");
+}
+
+map<string, pair<vector<string>, vector<double> > > read_routes(string file_name) {
     string routes;
     ifstream inFile;
     Airports raw_data;
     raw_data.readCleanData();
     map<string, Airports::airport*> airport_data = raw_data.airports;//initialize airport data
     
-    inFile.open("routes.dat");
+    inFile.open(file_name.c_str());
     if (!inFile) {
         cout<<"Failed to open file"<<endl;
         exit(1); //terminate program
@@ -30,7 +34,7 @@ map<string, pair<vector<string>, vector<double> > > read_routes() {
     //file opened succesfully
     map<string, pair<vector<string>, vector<double> > > result_routes;
     string line_text;
-    //traverse by line in routes.dat
+    //traverse by line in the given file
     while (getline(inFile, line_text)) {
         vector<string> v;
         stringstream ss(line_text);
