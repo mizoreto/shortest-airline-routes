@@ -16,8 +16,8 @@ typedef pair<double, string> pq_pair;
               https://www.geeksforgeeks.org/priority-queue-of-pairs-in-c-with-ordering-by-first-and-second-element/
 */
 
-pair<map<string, string>, map<string, double> > BFS(std::string startVertex) {
-    map<string, pair<vector<string>, vector<double> > > routes_data = read_routes();
+pair<map<string, string>, map<string, double> > BFS(std::string startVertex, 
+            map<string, pair<vector<string>, vector<double> > > routes_data) {
     map<string, pair<vector<string>, vector<double> > >::iterator it;
     priority_queue<pq_pair, vector<pq_pair>, greater<pq_pair> > pq;
     map<string, bool> visited;
@@ -86,10 +86,10 @@ void findMinDistance(string startVertex, string endVertex){
     cout<<path[i]<<endl;
 }
 
-pair<double, vector<string> > dijkstra(string startVertex, string endVertex) {
-    map<string, pair<vector<string>, vector<double> > > routes_data = read_routes("routes.dat");
+pair<double, vector<string> > dijkstra(string startVertex, string endVertex, 
+                map<string, pair<vector<string>, vector<double> > > routes_data) {
     cout<<"Looking for shortest path..."<<endl;
-    pair<map<string, string>, map<string, double> > result_pair = BFS(startVertex);
+    pair<map<string, string>, map<string, double> > result_pair = BFS(startVertex, routes_data);
     map<string, double> distance = result_pair.second;
     map<string, string> parent = result_pair.first;
 
