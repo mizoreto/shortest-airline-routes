@@ -53,12 +53,12 @@ TEST_CASE("Test Dijkstra") {
 
 
 TEST_CASE("Test Read Airport") {
-    Airport test_airports;
+    Airports test_airports;
     routes test_routes;
     test_airports.readCleanData("test_latlon.dat");
     test_routes.read_routes("test_routes.dat");
-    REQUIRE(test_airports.airports["UGL"].lat == 40.1046698);
-    REQUIRE(test_airports.airports["UGL"].lon == -88.2290223);
+    REQUIRE(test_airports.airports["UGL"]->lat == 40.1046698);
+    REQUIRE(test_airports.airports["UGL"]->lon == -88.2290223);
 }
 
-TEST_CASE("Test Read Routes", )
+//TEST_CASE("Test Read Routes", )
