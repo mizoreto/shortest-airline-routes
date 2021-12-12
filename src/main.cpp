@@ -9,12 +9,12 @@
 
 int main() {
     Airports apts;
-    apts.readCleanData();
+    apts.readCleanData(); //reads data from "airport_clean.dat"
     map<string, pair<vector<string>, vector<double> > > routes = read_routes();
-    string departing, destination;
+    string departing, destination; //strings that store departing and arriving airport IDs.
     bool inputInvalid = true;
     cout << "Consult airport.dat for the airports' information." << endl;
-    while (inputInvalid) {
+    while (inputInvalid) { //reads user input, and loop stops when both airport IDs are valid.
         cout << "Please type in the 3 or 4-letter ID of the departing Airport:" << endl;
         cin >> departing;
         for (int i = 0; i < departing.length(); i++) departing[i] = toupper(departing[i]);
@@ -29,8 +29,8 @@ int main() {
         }
     }
 
-    findMinDistance(departing, destination);
-    addDegreeToAirport(apts.airports, routes);
-    mostCentralAirport(apts.airports);
+    findMinDistance(departing, destination); //runs and prints the result dijkstra's algorithm.
+    addDegreeToAirport(apts.airports, routes); //prepares the airport objects for degree centrality algorithm.
+    mostCentralAirport(apts.airports); //runs and prints the result of degree centrality algorithm.
     return 0;
 }
