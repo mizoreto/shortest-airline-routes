@@ -29,7 +29,8 @@ void findMinDistance(string startVertex, string endVertex);
  * @return the distance between startVertex and endVertex 
 */
 
-pair<double, vector<string> > dijkstra(string startVertex, string endVertex);
+pair<double, vector<string> > dijkstra(string startVertex, 
+            string endVertex, map<string, pair<vector<string>, vector<double> > > routes_data);
 
 
 /**
