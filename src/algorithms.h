@@ -9,7 +9,7 @@
 #include "read_airport.cpp"
 
 using namespace std;
-void BFS(std::string startVertex);
+pair<map<string, string>, map<string, double> > BFS(std::string startVertex);
 
 /**
  * prints the results of the dijkstra algorithm: the shortest distance between two airports

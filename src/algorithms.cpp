@@ -16,35 +16,46 @@ typedef pair<double, string> pq_pair;
               https://www.geeksforgeeks.org/priority-queue-of-pairs-in-c-with-ordering-by-first-and-second-element/
 */
 
-void BFS(std::string startVertex) {
-    // using the map to get all airports
-    // that are within the same connected component as the starting airport
-    std::map<string, pair<vector<string>, vector<double> > > routes_data = read_routes();
-    std::pair<vector<string>, vector<double> > airports_pair = routes_data[startVertex];
-    vector<string> airports = airports_pair.first;
-    // used to keep track of whether an airport is visited
-    std::map<string, bool> visited;
-    std::queue<string> q;
-    visited[startVertex] = true;
-    q.push(startVertex);
-    int count = 0;
-    while (!q.empty()) {
-        string currVertex = q.front();
-        //std::cout << "Visited " <<count++<<":"<< currVertex << " " <<endl;;
-        q.pop();
+pair<map<string, string>, map<string, double> > BFS(std::string startVertex) {
+    map<string, pair<vector<string>, vector<double> > > routes_data = read_routes();
+    map<string, pair<vector<string>, vector<double> > >::iterator it;
+    priority_queue<pq_pair, vector<pq_pair>, greater<pq_pair> > pq;
+    map<string, bool> visited;
+    map<string, double> distance;//maps a airport ID to its distance from the starting vertex
+    map<string, string> parent;
+    //initialize the visited, distance, and parent maps
+    for (it = routes_data.begin(); it != routes_data.end(); it++) {
+        for (int i = 0; i < it->second.first.size(); i++) {  
+            string curr_key = (it->second.first)[i];
+            parent[curr_key] = "NULL";
+            visited[curr_key] = false;
+            distance[curr_key] = INT_MAX;
+        }
+    }
+    distance[startVertex] = 0;
+    pq.push(make_pair(0.0, startVertex));
+    while(!pq.empty()) {
+        string curr_node = pq.top().second;
+        double minDist = pq.top().first;
+        visited[curr_node] = true;
 
-        for (int i = 0; i < airports.size(); ++i) {
+        for (int i = 0; i < routes_data[curr_node].first.size(); i++) {
+            string edge_node = routes_data[curr_node].first[i];
+            double edge_length = routes_data[curr_node].second[i];
             
-            if (!visited[airports[i]]) {
-                visited[airports[i]] = true;
-                q.push(airports[i]);
+            if (visited[edge_node]) {
+                continue;
+            }
+            double new_distance = distance[curr_node] + edge_length;
+            if (new_distance < distance[edge_node]) {
+                distance[edge_node] = new_distance;
+                parent[edge_node] = curr_node;
+                pq.push(make_pair(edge_length, edge_node));
             }
         }
-
-        // update the airports vector, so that it continues to traverse all the other airports.
-        airports = routes_data[q.front()].first;
-
+        pq.pop();
     }
+    return make_pair(parent, distance);
 } 
 
 void findMinDistance(string startVertex, string endVertex){
@@ -75,11 +86,10 @@ void findMinDistance(string startVertex, string endVertex){
 
 pair<double, vector<string> > dijkstra(string startVertex, string endVertex) {
     map<string, pair<vector<string>, vector<double> > > routes_data = read_routes();
-    map<string, pair<vector<string>, vector<double> > >::iterator it;
-    priority_queue<pq_pair, vector<pq_pair>, greater<pq_pair> > pq;
-    map<string, bool> visited;
-    map<string, double> distance;//maps a airport ID to its distance from the starting vertex
-    map<string, string> parent;
+    cout<<"Looking for shortest path..."<<endl;
+    pair<map<string, string>, map<string, double> > result_pair = BFS(startVertex);
+    map<string, double> distance = result_pair.second;
+    map<string, string> parent = result_pair.first;
 
     // deal with invalid inputs
     if (routes_data.find(startVertex) == routes_data.end()) {
@@ -88,44 +98,6 @@ pair<double, vector<string> > dijkstra(string startVertex, string endVertex) {
     if (routes_data.find(endVertex) == routes_data.end()) {
         return make_pair(-2, vector<string> ());
     }
-
-    //initialize the visited, distance, and parent maps
-    cout<<"dijkstra initialization started" <<endl;
-    for (it = routes_data.begin(); it != routes_data.end(); it++) {
-        for (int i = 0; i < it->second.first.size(); i++) {  
-            string curr_key = (it->second.first)[i];
-            parent[curr_key] = "NULL";
-            visited[curr_key] = false;
-            distance[curr_key] = INT_MAX;
-        }
-    }
-    cout<<"dijkstra initialization complete"<<endl;
-
-    distance[startVertex] = 0;
-    pq.push(make_pair(0.0, startVertex));
-    cout<<"pq traversal start"<<endl;
-    while(!pq.empty()) {
-        string curr_node = pq.top().second;
-        double minDist = pq.top().first;
-        visited[curr_node] = true;
-
-        for (int i = 0; i < routes_data[curr_node].first.size(); i++) {
-            string edge_node = routes_data[curr_node].first[i];
-            double edge_length = routes_data[curr_node].second[i];
-            
-            if (visited[edge_node]) {
-                continue;
-            }
-            double new_distance = distance[curr_node] + edge_length;
-            if (new_distance < distance[edge_node]) {
-                distance[edge_node] = new_distance;
-                parent[edge_node] = curr_node;
-                pq.push(make_pair(edge_length, edge_node));
-            }
-        }
-        pq.pop();
-    }
-
     // store the path into a string vector
     string curr_airport = endVertex;
     vector<string> path;
