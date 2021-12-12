@@ -20,7 +20,12 @@ by using Degree Centrality algorithm.
 
 All of the code execution and compilation commands must be run in the `src/` directory of the project.
 
-`make` -
+To run this project:
+
+```
+$ make
+$./main
+```
 
 `g++ -o test main.cpp` -
 
@@ -38,5 +43,7 @@ After the main function is run, it will ask for two inputs: the starting airport
 `src/read_routes.cpp` - Reads routes data from routes.dat. Linked to `src/read_routes.h`
 
 `src/algorithms.cpp` - Contains BFS, Dijkstra's, and the Degree Centrality algorithm. Linked to `src/algorithms.h`
+
+`src/tests` - Contains the entire test suite for the project
 
 # Test Suite
