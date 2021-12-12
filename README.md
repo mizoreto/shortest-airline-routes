@@ -38,3 +38,5 @@ After the main function is run, it will ask for two inputs: the starting airport
 `src/read_routes.cpp` - Linked to `src/read_routes.h`
 
 `src/algorithms.cpp` - Contains BFS, Dijkstra's, and the Degree Centrality algorithm. Linked to `src/algorithms.h`
+
+# Test Suite

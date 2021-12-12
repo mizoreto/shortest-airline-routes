@@ -17,12 +17,13 @@ int main() {
     while (inputInvalid) { //reads user input, and loop stops when both airport IDs are valid.
         cout << "Please type in the 3 or 4-letter ID of the departing Airport:" << endl;
         cin >> departing;
-        for (int i = 0; i < departing.length(); i++) departing[i] = toupper(departing[i]);
+        for (int i = 0; i < departing.length(); i++) departing[i] = toupper(departing[i]); //convert to UPPERCASE.
         cout << "Please type in the 3 or 4-letter ID of the arriving Airport." << endl;
         cin >> destination;
-        for (int i = 0; i < destination.length(); i++) destination[i] =toupper(destination[i]);
-        if (apts.airports.count(departing) > 0 && apts.airports.count(destination) > 0) inputInvalid = false;
-        else {
+        for (int i = 0; i < destination.length(); i++) destination[i] =toupper(destination[i]); //convert to UPPERCASE.
+
+        if (apts.airports.count(departing) > 0 && apts.airports.count(destination) > 0) inputInvalid = false; //check if airports IDs exist.
+        else { //tell user which id input is invalid.
             if (apts.airports.count(departing) == 0) cout << "The departing airport ID " << departing << " is Invalid;";
             if (apts.airports.count(destination) == 0) cout << "The arriving airport ID " << destination << " is Invalid;";
             cout << "Please try again and enter valid airport IDs." << endl;
