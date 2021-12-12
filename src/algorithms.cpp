@@ -59,9 +59,11 @@ pair<map<string, string>, map<string, double> > BFS(std::string startVertex) {
 } 
 
 void findMinDistance(string startVertex, string endVertex){
-    double min_distance = dijkstra(startVertex, endVertex).first;
-    vector<string> path = dijkstra(startVertex, endVertex).second;
-    if (min_distance == INT_MAX) {//if min_distance has not been updated, then the endVertex is not reachable
+    pair<double, vector<string> > dijkstra_pair = dijkstra(startVertex, endVertex);
+    double min_distance = dijkstra_pair.first;
+    vector<string> path = dijkstra_pair.second;
+    if (min_distance == INT_MAX) {
+        //if min_distance has not been updated, then that means the endVertex is not reachable
         cout<<"destinatin airport not reachable"<<endl;
         return;
     } else if (min_distance == -1) {

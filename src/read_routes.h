@@ -20,6 +20,14 @@ using namespace std;
 std::map<string, pair<vector<string>, vector<double> > > read_routes();
 
 /**
+* read the data from any given file
+* @return a map where the first element is a string representing the third element in the line and 
+* the second element is a pair. The first element of the pair is a string vector and the second 
+* element of the pair is a double vector
+*/
+map<string, pair<vector<string>, vector<double> > > read_routes(string file_name);
+
+/**
 * returns the haversine distance of two coordinates
 *
 * @param double lat_1 latitude of the first coordinate
