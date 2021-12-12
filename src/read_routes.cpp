@@ -15,11 +15,11 @@
 
 using namespace std;
 
-map<string, pair<vector<string>, vector<double> > > read_routes() {
+void read_routes() {
     return read_routes("routes.dat");
 }
 
-map<string, pair<vector<string>, vector<double> > > read_routes(string file_name) {
+void read_routes(string file_name) {
     string routes;
     ifstream inFile;
     Airports raw_data;
@@ -65,7 +65,7 @@ map<string, pair<vector<string>, vector<double> > > read_routes(string file_name
         result_routes[v[2]].second.push_back(src_dest_dist);
     }
     inFile.close();
-    return result_routes;
+    routes_map = result_routes;
 }
 
 double haversine_dist(double lat_1, double long_1, double lat_2, double long_2) {
