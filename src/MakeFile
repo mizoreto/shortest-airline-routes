@@ -1,4 +1,5 @@
-EXENAME = flights
+EXENAME = main
+TEST = test
 OBJS = main.o algorithms.o read_airport.o read_routes.o
 
 
@@ -28,7 +29,7 @@ algorithms.o : algorithms.cpp algorithms.h
 read_airport.o: read_airport.cpp read_airport.h
 	$(CXX) $(CXXFLAGS) read_airport.cpp
 
-read_routes.o: read_routes.cpp read_routes.h
+read_routes.o: read_routes.cpp read_routes.h read_airport.cpp read_airport.h
 	$(CXX) $(CXXFLAGS) read_routes.cpp
 
 clean :
