@@ -12,7 +12,7 @@ int main() {
     apts.readRawData();
     apts.readCleanData();
     map<string, pair<vector<string>, vector<double> > > routes = read_routes();
-    findMinDistance("AER", "JFK");
+    findMinDistance("AES", "KTW");
     addDegreeToAirport(apts.airports, routes);
     string IDa = mostCentralAirport(apts.airports);
     return 0;
