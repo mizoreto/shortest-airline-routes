@@ -1,0 +1,12 @@
+==================== Basic Information ====================
+Departing Airport: PEK
+Arriving Airport: SHE
+
+==================== Dijkstra's Algorithm ====================
+Minimum Distance Path Taken: 
+    PEK --> SHE
+Distance Traveled: 605.278 km.
+
+==================== Degree Centrality ====================
+Airport with most departing flights: ATL
+ATL's degree: 915
