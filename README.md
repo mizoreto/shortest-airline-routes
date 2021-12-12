@@ -6,11 +6,11 @@ yuhua2-ziyiw8-boyangy4-jiayinm2
 
 All of the code execution and compilation commands must be run in the `src/` directory of the project.
 
-`make`
+`make` -
 
-`g++ -o test main.cpp`
+`g++ -o test main.cpp` -
 
-`./test`
+`./test` -
 
 # Directory Structure
 
@@ -20,4 +20,4 @@ All of the code execution and compilation commands must be run in the `src/` dir
 
 `src/read_routes.cpp` - Linked to `src/read_routes.h`
 
-`src/algorithms.cpp` - Linked to `src/algorithms.h`
+`src/algorithms.cpp` - Contains BFS, Dijkstra's, and the Degree Centrality algorithm. Linked to `src/algorithms.h`
