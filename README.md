@@ -46,4 +46,6 @@ After the main function is run, it will ask for two inputs: the starting airport
 
 `src/tests` - Contains the entire test suite for the project
 
+`src/catch` - Contains the Catch testing library
+
 # Test Suite
