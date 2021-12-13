@@ -24,12 +24,16 @@ To run this project:
 
 ```
 $ make
-$./main
+$ ./main
 ```
 
 `g++ -o test main.cpp` -
 
-`./test` -
+To run the test for this project:
+```
+$ make test
+$ ./test
+```
 
 ### Edit Inputs
 After the main function is run, it will ask for two inputs: the starting airport and the destinatin airport, each represented by its 3 or 4-letter airport ID (both upper-case or lower case would be acceptable). The terminal would ask for starting airport ID first and then the destination airport ID. Input the desired IDs one at a time, and press "Enter" on the keyboard after each input. The result of the search and calculation will be shown in the terminal after the program received both IDs.
