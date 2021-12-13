@@ -27,6 +27,8 @@ Our algorithm to find the shortest path between two airports, which used Dijkstr
 
   - Departing Airport: HAR. Arriving Airport: SEA
   Minimum Distance Path Taken: Departing airport has no flights. Distance Traveled: -1 km.
+  ![image](https://media.github-dev.cs.illinois.edu/user/11774/files/58c2458e-1b8f-452b-ab39-d84f2fa49558)
+
  
 As shown by these sample outputs, when there is a direct flight between two airports, the minimum distance path will be that direct flight. If there are no direct flights (Edges) connecting two airports (Vertices), our algorithm will still find the shortest path that involves changing flights at other airports. If there is not a single path between the departing and arriving airports, then as shown by the HAR and SEA airports, the algorithm will tell the user that the there is no flights, and that the is no distance traveled.
 
