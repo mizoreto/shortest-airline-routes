@@ -1,4 +1,3 @@
-#pragma once
 #include "read_airport.h"
 
 #include <iostream>

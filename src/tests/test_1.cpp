@@ -34,14 +34,34 @@ TEST_CASE("Test Dijkstra") {
     routes test_routes;
     test_routes.routes_map["A"].first.push_back("B");
     test_routes.routes_map["A"].second.push_back(1);
+
     test_routes.routes_map["A"].first.push_back("C");
     test_routes.routes_map["A"].second.push_back(3);
+
+    test_routes.routes_map["B"].first.push_back("A");
+    test_routes.routes_map["B"].second.push_back(1);
+
     test_routes.routes_map["B"].first.push_back("C");
     test_routes.routes_map["B"].second.push_back(5);
+
     test_routes.routes_map["B"].first.push_back("D");
     test_routes.routes_map["B"].second.push_back(4);
+
+    test_routes.routes_map["C"].first.push_back("D");
+    test_routes.routes_map["C"].second.push_back(4);
+
+    test_routes.routes_map["C"].first.push_back("B");
+    test_routes.routes_map["C"].second.push_back(5);
+
+    test_routes.routes_map["C"].first.push_back("A");
+    test_routes.routes_map["C"].second.push_back(3);
+
     test_routes.routes_map["D"].first.push_back("C");
     test_routes.routes_map["D"].second.push_back(4);
+
+    test_routes.routes_map["D"].first.push_back("B");
+    test_routes.routes_map["D"].second.push_back(4);
+
     REQUIRE(dijkstra("A", "C", test_routes.routes_map).first == 3.0);
     REQUIRE(dijkstra("B", "C", test_routes.routes_map).first == 4.0);
 }
@@ -55,4 +75,4 @@ TEST_CASE("Test Read Airport") {
     REQUIRE(test_airports.airports["UGL"]->lon == -88.2290223);
 }
 
-//TEST_CASE("Test Read Routes", )
+//TEST_CASE("Test Read Routes")

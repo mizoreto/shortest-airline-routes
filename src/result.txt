@@ -1,11 +1,11 @@
 ==================== Basic Information ====================
-Departing Airport: PEK
-Arriving Airport: SHE
+Departing Airport: AER
+Arriving Airport: AER
 
 ==================== Dijkstra's Algorithm ====================
 Minimum Distance Path Taken: 
-    PEK --> SHE
-Distance Traveled: 605.278 km.
+    AER
+Distance Traveled: 0 km.
 
 ==================== Degree Centrality ====================
 Airport with most departing flights: ATL
