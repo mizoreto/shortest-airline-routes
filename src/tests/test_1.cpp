@@ -28,6 +28,24 @@ using namespace std;
 // pair<double, vector<string> > dijkstra(string startVertex, 
 //             string endVertex, map<string, pair<vector<string>, vector<double> > > routes_data);
 
+TEST_CASE("Test Read Airport") {
+    Airports test_airports;
+    routes test_routes;
+    test_airports.readCleanData("test_latlon.dat");
+    test_routes.routes::read_routes("test_routes.dat");
+    REQUIRE(test_airports.airports["UGL"]->lat == 40.1046698);
+    REQUIRE(test_airports.airports["UGL"]->lon == -88.2290223);
+}
+
+TEST_CASE("Test Read Routes") {
+    Airports test_airports;
+    routes test_routes;
+    test_airports.readCleanData("test_latlon.dat");
+    test_routes.routes::read_routes("test_routes.dat");
+    REQUIRE(test_airports.airports["UGL"].first[0] == "ARC");
+    REQUIRE(test_airports.airports["UGL"].second[0] ==
+            haversine_dist(40.1046698, -88.2290223, 40.1013125, -88.2381926));
+}
 
 TEST_CASE("Test Dijkstra") {
     Airports test_airports;
@@ -64,15 +82,5 @@ TEST_CASE("Test Dijkstra") {
 
     REQUIRE(dijkstra("A", "C", test_routes.routes_map).first == 3.0);
     REQUIRE(dijkstra("B", "C", test_routes.routes_map).first == 4.0);
+    REQUIRE(dijkstra("D", "A", test_routes.routes_map).first == 5.0);
 }
-
-TEST_CASE("Test Read Airport") {
-    Airports test_airports;
-    routes test_routes;
-    test_airports.readCleanData("test_latlon.dat");
-    test_routes.routes::read_routes("test_routes.dat");
-    REQUIRE(test_airports.airports["UGL"]->lat == 40.1046698);
-    REQUIRE(test_airports.airports["UGL"]->lon == -88.2290223);
-}
-
-//TEST_CASE("Test Read Routes")
