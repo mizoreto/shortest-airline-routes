@@ -13,8 +13,7 @@ using namespace std;
 
 typedef pair<double, string> pq_pair;
 // BFS algorithm
-/* reference: https://www.programiz.com/dsa/graph-bfs
-              https://www.geeksforgeeks.org/priority-queue-of-pairs-in-c-with-ordering-by-first-and-second-element/
+/* reference: https://www.geeksforgeeks.org/priority-queue-of-pairs-in-c-with-ordering-by-first-and-second-element/
 */
 
 pair<map<string, string>, map<string, double> > BFS(std::string startVertex, 
@@ -37,7 +36,6 @@ pair<map<string, string>, map<string, double> > BFS(std::string startVertex,
     pq.push(make_pair(0.0, startVertex));
     while(!pq.empty()) {
         string curr_node = pq.top().second;
-        //double minDist = pq.top().first;
         visited[curr_node] = true;
 
         for (size_t i = 0; i < routes_data[curr_node].first.size(); i++) {

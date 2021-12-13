@@ -10,23 +10,11 @@ using namespace std;
 class routes {
     public:
         /**
-        * read_routes() reads routes data from routes.dat and airport longitudes and latitude from
-        * read_airport.cpp and returns the source airport, destination airport, and distance of each 
-        * route.
-        *
-        * @return a map where the first element is a string representing the source airport and the second
-        * element is a pair. The first element of the pair is a string vector that stores all the destination
-        * airport that the source airport could reach, and the second element of the pair is a double vector 
-        * that stores all the distance from the source to the corresponding destination.
+        * read the data from any given file
+        * @param string file_name_routes, the file name of routes raw data
+        * @param string file_name_airports, the filename of airports raw data
         */
         void read_routes();
-
-        /**
-        * read the data from any given file
-        * @return a map where the first element is a string representing the third element in the line and 
-        * the second element is a pair. The first element of the pair is a string vector and the second 
-        * element of the pair is a double vector
-        */
         void read_routes(string file_name_routes, string file_name_airports);
 
         /**
@@ -46,5 +34,13 @@ class routes {
         * @return double radian
         */
         double cvrtToRad(double degree);
+
+        /**
+        * a map container that stores the result of the reads. The first element of the map is a string 
+        * representing the source airport and the second element is a pair. The first element of the pair 
+        * is a string vector that stores all the destination airport that the source airport could reach,
+        * and the second element of the pair is a double vector that stores all the distance from the source 
+        * to the corresponding destination.
+        */
         map<string, pair<vector<string>, vector<double> > > routes_map;     
 };
