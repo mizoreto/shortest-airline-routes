@@ -2,7 +2,7 @@
 ## I. Leading Question - 
 ### What is the shortest, or most preferred route between two airports?
 ## II. Dataset Acquisition - 
-We are planning to use the data provided by openflights.org for this project. We will be focusing on the airport portion of the dataset as our leading question is to find the optimal route between two airports. This portion of the dataset contains airport ID, name, city, latitude, longitude, and altitude. Which will be helpful for us to draw a conclusion. We will store the data in .csv format, and we may need to convert the data’s format. We will delete or ignore data error, outlier, unwanted data, or missing data before applying the algorithms. We will treat each airport as a vertex on the graph, and each flight as an edge connecting two airports, while the distance traveled by that flight will be the weight of its edge. 
+We are planning to use the data provided by openflights.org for this project. We will be focusing on the airport portion of the dataset as our leading question is to find the optimal route between two airports. This portion of the dataset contains airport ID, name, city, latitude, longitude, and altitude. Which will be helpful for us to draw a conclusion. We will store the data in .dat format, the format openflight.org uses. We will delete or ignore data error, outlier, unwanted data, or missing data before applying the algorithms. We will treat each airport as a vertex on the graph, and each flight as an edge connecting two airports, while the distance traveled by that flight will be the weight of its edge. 
 
 https://openflights.org/data.html
 ## III. Graph Algorithms -
