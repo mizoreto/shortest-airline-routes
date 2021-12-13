@@ -31,8 +31,8 @@ using namespace std;
 TEST_CASE("Test Read Airport") {
     Airports test_airports;
     routes test_routes;
-    test_airports.readCleanData("test_latlon.dat");
-    test_routes.routes::read_routes("test_routes.dat");
+    test_airports.readCleanData("tests/test_airports.dat");
+    test_routes.routes::read_routes("tests/test_routes.dat");
     REQUIRE(test_airports.airports["UGL"]->lat == 40.1046698);
     REQUIRE(test_airports.airports["UGL"]->lon == -88.2290223);
 }
@@ -40,11 +40,11 @@ TEST_CASE("Test Read Airport") {
 TEST_CASE("Test Read Routes") {
     Airports test_airports;
     routes test_routes;
-    test_airports.readCleanData("test_latlon.dat");
-    test_routes.routes::read_routes("test_routes.dat");
-    REQUIRE(test_airports.airports["UGL"].first[0] == "ARC");
-    REQUIRE(test_airports.airports["UGL"].second[0] ==
-            haversine_dist(40.1046698, -88.2290223, 40.1013125, -88.2381926));
+    test_airports.readCleanData("tests/test_airports.dat");
+    test_routes.routes::read_routes("tests/test_routes.dat");
+    REQUIRE(test_routes.routes_map["UGL"].first[0] == "ARC");
+    REQUIRE(test_routes.routes_map["UGL"].second[0] ==
+            test_routes.haversine_dist(40.1046698, -88.2290223, 40.1013125, -88.2381926));
 }
 
 TEST_CASE("Test Dijkstra") {
