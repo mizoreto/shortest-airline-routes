@@ -11,6 +11,8 @@ The process of reading airport data from .dat files is made roughly two times fa
 Our algorithm to find the shortest path between two airports, which used Dijkstra's algorithm, gives satisfactory results. Some examples of the results given by our algorithms:
   - Departing Airport: JFK. Arriving Airport: ORD
   Minimum Distance Path Taken: JFK --> ORD. Distance Traveled: 1187.84 km.
+  ![image](https://media.github-dev.cs.illinois.edu/user/11774/files/74867e3e-2f81-4ee8-b62b-da3f4762db89)
+
   - Departing Airport: LHR. Arriving Airport: OAK
   Minimum Distance Path Taken: LHR --> JFK --> OAK. Distance Traveled: 9674.79 km.
   - Departing Airport: SHE. Arriving Airport: LHR
