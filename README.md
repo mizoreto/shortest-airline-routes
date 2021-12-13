@@ -23,7 +23,7 @@ All of the code execution and compilation commands must be run in the `src/` dir
 To run this project:
 
 ```
-$ make
+$ make main
 $ ./main
 ```
 
