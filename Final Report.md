@@ -19,6 +19,8 @@ Our algorithm to find the shortest path between two airports, which used Dijkstr
 
   - Departing Airport: SHE. Arriving Airport: LHR
   Minimum Distance Path Taken: SHE --> FRA --> LHR. Distance Traveled: 8674.09 km.
+  ![image](https://media.github-dev.cs.illinois.edu/user/11774/files/ecfdf85c-1a91-4bda-96d7-2269245a6398)
+
   - Departing Airport: AER. Arriving Airport: ORD
   Minimum Distance Path Taken: AER --> KIV --> DUB --> ORD. Distance Traveled: 9420.12 km.
   - Departing Airport: HAR. Arriving Airport: SEA
