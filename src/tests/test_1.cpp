@@ -85,3 +85,82 @@ TEST_CASE("Test Dijkstra") {
     REQUIRE(dijkstra("B", "C", test_routes.routes_map).first == 4.0);
     REQUIRE(dijkstra("D", "A", test_routes.routes_map).first == 5.0);
 }
+
+TEST_CASE("Test Add Degrees to Airport") {
+    Airports test_airports;
+    routes test_routes;
+    Airports::airport A("A", 0, 0, -1);
+    test_airports.airports.insert(pair<string, Airports::airport*>("A", &A));
+    Airports::airport B("B", 0, 0, -1);
+    test_airports.airports.insert(pair<string, Airports::airport*>("B", &B));
+    Airports::airport C("C", 0, 0, -1);
+    test_airports.airports.insert(pair<string, Airports::airport*>("C", &C));
+    Airports::airport D("D", 0, 0, -1);
+    test_airports.airports.insert(pair<string, Airports::airport*>("D", &D));
+
+    test_routes.routes_map["A"].first.push_back("B");
+    test_routes.routes_map["A"].second.push_back(1);
+
+    test_routes.routes_map["A"].first.push_back("C");
+    test_routes.routes_map["A"].second.push_back(3);
+
+    test_routes.routes_map["B"].first.push_back("A");
+    test_routes.routes_map["B"].second.push_back(1);
+
+    test_routes.routes_map["B"].first.push_back("C");
+    test_routes.routes_map["B"].second.push_back(5);
+
+    test_routes.routes_map["B"].first.push_back("D");
+    test_routes.routes_map["B"].second.push_back(4);
+
+    test_routes.routes_map["C"].first.push_back("D");
+    test_routes.routes_map["C"].second.push_back(4);
+
+    test_routes.routes_map["C"].first.push_back("B");
+    test_routes.routes_map["C"].second.push_back(5);
+
+    test_routes.routes_map["C"].first.push_back("A");
+    test_routes.routes_map["C"].second.push_back(3);
+
+    addDegreeToAirport(test_airports.airports, test_routes.routes_map);
+
+    REQUIRE(test_airports.airports["A"]->degree == 2);
+    REQUIRE(test_airports.airports["B"]->degree == 3);
+    REQUIRE(test_airports.airports["C"]->degree == 3);
+    REQUIRE(test_airports.airports["D"]->degree == 0);
+}
+
+TEST_CASE("Test MostCentralAirport") {
+    Airports test_airports;
+    routes test_routes;
+    Airports::airport A("A", 0, 0, -1);
+    test_airports.airports.insert(pair<string, Airports::airport*>("A", &A));
+    Airports::airport B("B", 0, 0, -1);
+    test_airports.airports.insert(pair<string, Airports::airport*>("B", &B));
+    Airports::airport C("C", 0, 0, -1);
+    test_airports.airports.insert(pair<string, Airports::airport*>("C", &C));
+    Airports::airport D("D", 0, 0, -1);
+    test_airports.airports.insert(pair<string, Airports::airport*>("D", &D));
+
+    test_routes.routes_map["A"].first.push_back("B");
+    test_routes.routes_map["A"].second.push_back(1);
+
+    test_routes.routes_map["A"].first.push_back("C");
+    test_routes.routes_map["A"].second.push_back(3);
+
+    test_routes.routes_map["B"].first.push_back("A");
+    test_routes.routes_map["B"].second.push_back(1);
+
+    test_routes.routes_map["B"].first.push_back("C");
+    test_routes.routes_map["B"].second.push_back(5);
+
+    test_routes.routes_map["B"].first.push_back("D");
+    test_routes.routes_map["B"].second.push_back(4);
+
+    test_routes.routes_map["C"].first.push_back("D");
+    test_routes.routes_map["C"].second.push_back(4);
+
+
+    addDegreeToAirport(test_airports.airports, test_routes.routes_map);
+    REQUIRE(mostCentralAirport(test_airports.airports) == pair<string, int> ("B", 3));
+}
