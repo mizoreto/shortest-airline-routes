@@ -27,6 +27,7 @@ pair<double, vector<string> > findMinDistance(string startVertex, string endVert
  * the destination airport
  * @param string startVertex starting point of the two airports
  * @param string endVertex end points of the two airports
+ * @param map routes_data a map storing all the routes
  * @return the distance between startVertex and endVertex 
 */
 

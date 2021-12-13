@@ -20,6 +20,10 @@ by using Degree Centrality algorithm.
 
 All of the code execution and compilation commands must be run in the `src/` directory of the project.
 
+If you are running the code on EWS, please run the following command first:
+```
+module load llvm/6.0.1
+```
 To run this project:
 
 ```
@@ -36,11 +40,11 @@ $ ./test
 ```
 
 ### Edit Inputs
-After the main function is run, it will ask for two inputs: the starting airport and the destinatin airport, each represented by its 3 or 4-letter airport ID (both upper-case or lower case would be acceptable). The terminal would ask for starting airport ID first and then the destination airport ID. Input the desired IDs one at a time, and press "Enter" on the keyboard after each input. The result of the search and calculation will be shown in the terminal after the program received both IDs.
+After the main function is run, it will ask for two inputs: the starting airport and the destinatin airport, each represented by its 3 (IATA) or 4-letter (ICAO) airport ID (both upper-case or lower case would be acceptable). The terminal would ask for departing airport ID first and then the arriving airport ID. Input the desired IDs one at a time, and press "Enter" on the keyboard after each input. The result of the search and calculation will be shown in the terminal after the program received both IDs.
 
 # Directory Structure
 
-`src/` - Contains all relevant source code for the project
+`src/` - Contains all relevant source code and datasets for the project
 
 `src/read_airport.cpp` - Reads raw data from airports.dat, the file from openflights.org. Linked to `src/read_airport.h`
 
