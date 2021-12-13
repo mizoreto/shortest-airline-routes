@@ -8,5 +8,5 @@
 ### Week Nov. 29th - Dec. 5th
   This week, we continued working on data reading, and started discussing the implementation of algorithms. We finished read_airport and read_routes, and the program is now able to read airports and routes from the source files, as well as outputting a cleaned up version of the airport data without unused data.
 ### Week Dec. 6th - Dec. 12th
-  This week, we started working on BFS, Dijsktra's algorithm and Degree Centrality algorithm.
+  This week, we started working on BFS, Dijsktra's algorithm and Degree Centrality algorithm, as we finished them. We also created test cases for all essential functions, and we confirmed that we were getting the desired outputs. Our program should be fully functional and giving desired results now.
 ### Week Dec. 13th - Dec. 19th
