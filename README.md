@@ -25,7 +25,11 @@ If you are running the code on EWS, please run the following command first:
 module load llvm/6.0.1
 ```
 To run this project:
-
+First make sure you are in the right directory, which is `/src`.
+```
+cd src
+```
+Then, 
 ```
 $ make main
 $ ./main
@@ -55,3 +59,10 @@ After the main function is run, it will ask for two inputs: the starting airport
 `src/tests` - Contains the entire test suite for the project
 
 `src/catch` - Contains the Catch testing library
+
+## Test Suite
+- Test Read Airport: tests the data reader for airports by checking if it read and added the data from a test data file into the map.
+- Test Read Routes: tests the data reader for routes (flights) by checking if it read and added the data from a test data file into the map.
+- Test Dijkstra: tests the dijkstra algorithm by giving it a test graph with several vertices and edges, and see if it gives the correct distance of the best path between different vertices.
+- Test Add Degrees to Airport: tests whether airport objects have the correct degrees assigned to them, which is essential for degree centrality to work properly.
+- Test MostCentralAirport: tests whether mostCentralAiport() finds the correct airport to be the most central airport.
