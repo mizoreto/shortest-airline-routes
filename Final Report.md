@@ -15,6 +15,8 @@ Our algorithm to find the shortest path between two airports, which used Dijkstr
 
   - Departing Airport: LHR. Arriving Airport: OAK
   Minimum Distance Path Taken: LHR --> JFK --> OAK. Distance Traveled: 9674.79 km.
+  ![image](https://media.github-dev.cs.illinois.edu/user/11774/files/825d1d4e-4c19-4c3a-ab19-0921a9458ad7)
+
   - Departing Airport: SHE. Arriving Airport: LHR
   Minimum Distance Path Taken: SHE --> FRA --> LHR. Distance Traveled: 8674.09 km.
   - Departing Airport: AER. Arriving Airport: ORD
