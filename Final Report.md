@@ -23,6 +23,8 @@ Our algorithm to find the shortest path between two airports, which used Dijkstr
 
   - Departing Airport: AER. Arriving Airport: ORD
   Minimum Distance Path Taken: AER --> KIV --> DUB --> ORD. Distance Traveled: 9420.12 km.
+  ![image](https://media.github-dev.cs.illinois.edu/user/11774/files/d70ee352-17c6-4c62-9004-6f8839a896a6)
+
   - Departing Airport: HAR. Arriving Airport: SEA
   Minimum Distance Path Taken: Departing airport has no flights. Distance Traveled: -1 km.
  
