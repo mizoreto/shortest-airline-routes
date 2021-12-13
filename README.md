@@ -6,6 +6,9 @@
 - boyangy4
 - jiayinm2
 
+## Video Description
+https://drive.google.com/file/d/1OcsiumlsPo74cVLvemyDImuoEDvqLORv/view?usp=sharing
+
 ## How to Download
 Copy the command below to download our program:
 ```bash
