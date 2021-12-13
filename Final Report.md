@@ -5,7 +5,7 @@
 - boyangy4
 - jiayinm2
 
-##Results
+## Results
 The process of reading airport data from .dat files is made roughly two times faster by processing the raw data from openflights.org with readRawData() and saving it to a cleaner format without unused information. Using the newly saved airports_clean.dat and readCleanData(), we were able to reduce the time of reading airport data by roughly half.
 
 Our algorithm to find the shortest path between two airports, which used Dijkstra's algorithm, gives satisfactory results. Some examples of the results given by our algorithms:
