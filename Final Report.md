@@ -23,6 +23,7 @@ Our algorithm to find the shortest path between two airports, which used Dijkstr
   Minimum Distance Path Taken: AER --> KIV --> DUB --> ORD. Distance Traveled: 9420.12 km.
   - Departing Airport: HAR. Arriving Airport: SEA
   Minimum Distance Path Taken: Departing airport has no flights. Distance Traveled: -1 km.
+ 
 As shown by these sample outputs, when there is a direct flight between two airports, the minimum distance path will be that direct flight. If there are no direct flights (Edges) connecting two airports (Vertices), our algorithm will still find the shortest path that involves changing flights at other airports. If there is not a single path between the departing and arriving airports, then as shown by the HAR and SEA airports, the algorithm will tell the user that the there is no flights, and that the is no distance traveled.
 
 For degree centrality, we counted the out degrees of all airports, in this case, the number of departing flights from each airport. Our result was that, according to our flight data, the airport ATL, which is the Hartsfield-Jackson Atlanta International Airport, has the most amount of departing flights, which is 915, and therefore its out degree is 915, and it is the most central/busiest airport.
