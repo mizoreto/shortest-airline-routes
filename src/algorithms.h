@@ -9,6 +9,11 @@
 #include "read_airport.cpp"
 
 using namespace std;
+
+/**
+* Perform BFS traversal with the given starting vertext
+* @param string startVertex the starting point of the traversal
+*/
 pair<map<string, string>, map<string, double> > BFS(std::string startVertex);
 
 /**
