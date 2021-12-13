@@ -38,7 +38,6 @@ void Airports::readRawData(string URL) {
         count++;
     }
     file.close();
-    //cout << "Task Complete: raw data from " << URL << " is added to class variable airports of type map<string, Airports::airport*>" << endl;
     writeCleanData();
 }
 void Airports::writeCleanData() {writeCleanData("airports_clean.dat");}
@@ -51,7 +50,6 @@ void Airports::writeCleanData(string URL) {
     for (map<string, airport*>::iterator it = airports.begin(); it != airports.end(); ++it)
         outFile << it->second->ID << "," << it->second->lat << "," << it->second->lon << endl;
     outFile.close();
-    //cout << "Task Complete: data from the map airports is written to the file " << URL << endl;
 }
 
 void Airports::readCleanData() {readCleanData("airports_clean.dat");}
@@ -77,5 +75,4 @@ void Airports::readCleanData(string URL) {
         newAirport->lon = strtod(parts[2].c_str() , NULL);
         airports.insert(pair<string, airport*> (newAirport->ID, newAirport));
     }
-    //cout << "Task Complete: data from " << URL << " is added to class variable airports of type map<string, Airports::airport*>" << endl;
 }

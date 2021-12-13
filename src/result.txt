@@ -1,11 +1,11 @@
 ==================== Basic Information ====================
 Departing Airport: AER
-Arriving Airport: PEK
+Arriving Airport: JFK
 
 ==================== Dijkstra's Algorithm ====================
 Minimum Distance Path Taken: 
-    AER --> OMS --> OVB --> PEK
-Distance Traveled: 6295.52 km.
+    AER --> KIV --> DUB --> JFK
+Distance Traveled: 8627.82 km.
 
 ==================== Degree Centrality ====================
 Airport with most departing flights: ATL

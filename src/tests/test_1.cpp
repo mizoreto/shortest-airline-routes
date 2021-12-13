@@ -13,21 +13,6 @@
 
 using namespace std;
 
-// ARC, 40.1013125, -88.2381926
-// UGL, 40.1046698, -88.2290223
-// WAL, 40.146127, -88.255618
-// SAN, 37.2965314, -122.0976163
-// PEK, 40.0798573, 116.6009234
-
-// ,,UGL,,ARC,,,,
-// ,,UGL,,PEK,,,,
-// ,,UGL,,WAL,,,,
-// ,,PEK,,UGL,,,,
-// ,,SAN,,PEK,,,,
-
-// pair<double, vector<string> > dijkstra(string startVertex, 
-//             string endVertex, map<string, pair<vector<string>, vector<double> > > routes_data);
-
 TEST_CASE("Test Read Airport") {
     Airports test_airports;
     test_airports.readCleanData("tests/test_airports.dat");
