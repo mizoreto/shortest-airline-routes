@@ -1,11 +1,11 @@
 ==================== Basic Information ====================
 Departing Airport: AER
-Arriving Airport: AER
+Arriving Airport: JFK
 
 ==================== Dijkstra's Algorithm ====================
 Minimum Distance Path Taken: 
-    AER
-Distance Traveled: 0 km.
+    AER --> KIV --> DUB --> JFK
+Distance Traveled: 8627.82 km.
 
 ==================== Degree Centrality ====================
 Airport with most departing flights: ATL

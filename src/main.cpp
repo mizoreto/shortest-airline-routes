@@ -36,10 +36,10 @@ int main() {
     while (inputInvalid) { //reads user input, and loop stops when both airport IDs are valid.
         cout << "Please type in the 3 or 4-letter ID of the departing Airport:" << endl;
         cin >> departing;
-        for (int i = 0; i < departing.length(); i++) departing[i] = toupper(departing[i]); //convert to UPPERCASE.
+        for (size_t i = 0; i < departing.length(); i++) departing[i] = toupper(departing[i]); //convert to UPPERCASE.
         cout << "Please type in the 3 or 4-letter ID of the arriving Airport." << endl;
         cin >> destination;
-        for (int i = 0; i < destination.length(); i++) destination[i] =toupper(destination[i]); //convert to UPPERCASE.
+        for (size_t i = 0; i < destination.length(); i++) destination[i] = toupper(destination[i]); //convert to UPPERCASE.
 
         if (apts.airports.count(departing) > 0 && apts.airports.count(destination) > 0) inputInvalid = false; //check if airports IDs exist.
         else { //tell user which id input is invalid.
@@ -48,7 +48,7 @@ int main() {
             cout << "Please try again and enter valid airport IDs." << endl;
         }
     }
-    
+
     pair<double, vector<string> > dijkstraResult = findMinDistance(departing, destination, rts.routes_map); //runs and prints the result dijkstra's algorithm.
     addDegreeToAirport(apts.airports, rts.routes_map); //prepares the airport objects for degree centrality algorithm.
     pair<string, double> degreeCentralityResult =  mostCentralAirport(apts.airports); //runs and prints the result of degree centrality algorithm.

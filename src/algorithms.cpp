@@ -1,3 +1,4 @@
+#pragma once
 #include "algorithms.h"
 #include <iostream>
 #include <queue>
@@ -25,7 +26,7 @@ pair<map<string, string>, map<string, double> > BFS(std::string startVertex,
     map<string, string> parent;
     //initialize the visited, distance, and parent maps
     for (it = routes_data.begin(); it != routes_data.end(); it++) {
-        for (int i = 0; i < it->second.first.size(); i++) {  
+        for (size_t i = 0; i < it->second.first.size(); i++) {  
             string curr_key = (it->second.first)[i];
             parent[curr_key] = "NULL";
             visited[curr_key] = false;
@@ -36,10 +37,10 @@ pair<map<string, string>, map<string, double> > BFS(std::string startVertex,
     pq.push(make_pair(0.0, startVertex));
     while(!pq.empty()) {
         string curr_node = pq.top().second;
-        double minDist = pq.top().first;
+        //double minDist = pq.top().first;
         visited[curr_node] = true;
 
-        for (int i = 0; i < routes_data[curr_node].first.size(); i++) {
+        for (size_t i = 0; i < routes_data[curr_node].first.size(); i++) {
             string edge_node = routes_data[curr_node].first[i];
             double edge_length = routes_data[curr_node].second[i];
             
@@ -82,7 +83,7 @@ pair<double, vector<string> > findMinDistance(string startVertex, string endVert
     cout<<"The shortest distance between source airport "<<startVertex<<" and "<<
     "destination airport "<<endVertex<<" is: "<<min_distance<<" km"<<endl;
     cout<<"The optimal path from "<<startVertex<<" to "<<endVertex<<" is: ";
-    int i = 0;
+    size_t i = 0;
     for (; i < path.size() - 1; i++) {
         cout<<path[i]<<", ";
     }
