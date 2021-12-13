@@ -30,9 +30,7 @@ using namespace std;
 
 TEST_CASE("Test Read Airport") {
     Airports test_airports;
-    routes test_routes;
     test_airports.readCleanData("tests/test_airports.dat");
-    test_routes.routes::read_routes("tests/test_routes.dat");
     REQUIRE(test_airports.airports["UGL"]->lat == 40.1046698);
     REQUIRE(test_airports.airports["UGL"]->lon == -88.2290223);
 }
@@ -40,11 +38,14 @@ TEST_CASE("Test Read Airport") {
 TEST_CASE("Test Read Routes") {
     Airports test_airports;
     routes test_routes;
-    test_airports.readCleanData("tests/test_airports.dat");
-    test_routes.routes::read_routes("tests/test_routes.dat");
-    REQUIRE(test_routes.routes_map["UGL"].first[0] == "ARC");
-    REQUIRE(test_routes.routes_map["UGL"].second[0] ==
-            test_routes.haversine_dist(40.1046698, -88.2290223, 40.1013125, -88.2381926));
+    test_routes.routes::read_routes("tests/test_routes.dat", "tests/test_airports.dat");
+    map<string, pair<vector<string>, vector<double> > >::iterator it;
+    for (it = test_routes.routes_map.begin(); it != test_routes.routes_map.end(); it++) {
+        cout<<"key: "<<it->first<<"; dest: "<< it->second.first[0]<<endl;
+    }
+    REQUIRE(test_routes.routes_map["SAN"].first[0] == "PEK");
+    REQUIRE(test_routes.routes_map["SAN"].second[0] ==
+            test_routes.haversine_dist(1, 2, 3, 4));
 }
 
 TEST_CASE("Test Dijkstra") {

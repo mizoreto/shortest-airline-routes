@@ -15,16 +15,16 @@
 
 using namespace std;
 
-void routes::read_routes() {read_routes("routes.dat");}
+void routes::read_routes() {read_routes("routes.dat", "airports_clean.dat");}
 
-void routes::read_routes(string file_name) {
+void routes::read_routes(string file_name_routes, string file_name_airports) {
     string routes;
     ifstream inFile;
     Airports raw_data;
-    raw_data.readCleanData();
+    raw_data.readCleanData(file_name_airports);
     map<string, Airports::airport*> airport_data = raw_data.airports;//initialize airport data
     
-    inFile.open(file_name.c_str());
+    inFile.open(file_name_routes.c_str());
     if (!inFile) {
         cout<<"Failed to open file"<<endl;
         exit(1); //terminate program

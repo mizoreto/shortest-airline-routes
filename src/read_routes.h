@@ -27,7 +27,7 @@ class routes {
         * the second element is a pair. The first element of the pair is a string vector and the second 
         * element of the pair is a double vector
         */
-        void read_routes(string file_name);
+        void read_routes(string file_name_routes, string file_name_airports);
 
         /**
         * returns the haversine distance of two coordinates
