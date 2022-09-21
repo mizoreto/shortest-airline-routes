@@ -16,7 +16,7 @@ git clone https://github-dev.cs.illinois.edu/cs225-fa21/yuhua2-ziyiw8-boyangy4-j
 ```
 
 ## Main Function
-Our program utilizes the routes and airports data from Open Flight to find the optimal path between two airports, and the airport that has the most departing flights. The first part, finding the shortest distancs and optimal path between two airports, is primarily accomplished by using Breadth First Search and Dijkstra's algorithm. The second part, finding the airport that has the most departing flights, is accomplished
+Our program utilizes the routes and airports data from Open Flight to find the optimal path between two airports, and the airport that has the most departing flights. The first part, finding the shortest distances and optimal path between two airports, is primarily accomplished by using Breadth First Search and Dijkstra's algorithm. The second part, finding the airport that has the most departing flights, is accomplished
 by using Degree Centrality algorithm.
 
 ## How to Compile and Run
